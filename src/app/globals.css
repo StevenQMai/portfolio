@@ -1,4 +1,17 @@
 @import "tailwindcss";
 
-
+html {
+    background-color: #030712; /* This matches your dark mode bg-gray-950 color */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+  }
+  
+  /* This ensures the background color switches with dark/light mode */
+  html.light-mode {
+    background-color: #f9fafb; /* This matches your light mode bg-gray-50 color */
+  }
+  
+  body {
+    min-height: 100vh;
+    overscroll-behavior: none; /* Prevents bounce effect in many browsers */
+  }
 

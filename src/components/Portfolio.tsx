@@ -90,11 +90,23 @@ const Portfolio: React.FC = () => {
     // Set initial dark mode based on user preference
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setDarkMode(prefersDark);
+    
+    // Apply the appropriate class to the HTML element
+    if (prefersDark) {
+      document.documentElement.classList.remove('light-mode');
+    } else {
+      document.documentElement.classList.add('light-mode');
+    }
   }, []);
   
-  // Toggle dark mode
+  // Update the toggleDarkMode function
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.documentElement.classList.remove('light-mode');
+    } else {
+      document.documentElement.classList.add('light-mode');
+    }
   };
   
   // Theme colors - more vibrant options for dark mode
