@@ -4,6 +4,7 @@ import React, { useState, useEffect, JSX } from 'react';
 // import Link from 'next/link';
 // import type { ReactNode } from 'react';
 import EducationTimeline from './EducationTimeline';
+import Image from 'next/image';
 
 interface LinkItem {
   name: string;
@@ -66,7 +67,7 @@ const Portfolio: React.FC = () => {
       },
       {
         title: "Undead Chase",
-        description: "A 2D game where you must survive an endless wave of zombies for as long as possible by dodging and collecting healing power-ups. Watch your health bar, avoid the zombies, and stay alive. There's nowhere to hide.",
+        description: "A 2D game where you must survive an endless wave of zombies for as long as possible by dodging and collecting healing power-ups. Watch your health bar, avoid the zombies, and stay alive. There\'s nowhere to hide.",
         technologies: ["Python, PyGame, Git"],
         link: "https://github.com/StevenQMai/Zombie-Dodge",
         image: "/images/projects/zombies_demo.png"
@@ -91,14 +92,14 @@ const Portfolio: React.FC = () => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setDarkMode(prefersDark);
     
-    // Apply the appropriate class to the HTML element
+  // Apply the appropriate class to the HTML element
     if (prefersDark) {
       document.documentElement.classList.remove('light-mode');
     } else {
       document.documentElement.classList.add('light-mode');
     }
   }, []);
-  
+
   // Update the toggleDarkMode function
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -207,7 +208,7 @@ const Portfolio: React.FC = () => {
                 {personalInfo.name} <span className="inline-block animate-wave">👋</span>
                 </h1>
                 <p className="text-xl opacity-80 mb-6">
-                    {personalInfo.title} from {personalInfo.education}
+                    {personalInfo.title} at {personalInfo.education}
                 </p>
                 <p className="text-lg opacity-80 mb-8">
                     {personalInfo.about}
@@ -242,9 +243,13 @@ const Portfolio: React.FC = () => {
           
           {/* Avatar on the right */}
           {personalInfo.avatar && (
-          <div className="hidden md:block shrink-0"> {/* Added shrink-0 to prevent image from shrinking */}
-            <div className="size-48 rounded-xl overflow-hidden">
-              <img 
+          <div className="hidden md:block shrink-0">
+            <div className={`size-48 rounded-xl overflow-hidden border-4 ${
+              darkMode 
+                ? 'border-amber-400 ring-2 ring-amber-400/20 ring-offset-2 ring-offset-gray-950' 
+                : 'border-violet-400 ring-2 ring-violet-400/20 ring-offset-2 ring-offset-gray-50'
+            } transition-all duration-300`}>
+              <Image 
                 src={personalInfo.avatar} 
                 alt={personalInfo.name} 
                 className="object-cover w-full h-full"
@@ -315,7 +320,7 @@ const Portfolio: React.FC = () => {
                     <div className="flex items-center gap-3 mb-2">
                       {exp.logo && (
                         <div className="size-10 shrink-0 rounded-full overflow-hidden border border-gray-700 bg-white/10">
-                          <img src={exp.logo} alt={exp.company} className="w-full h-full object-cover" />
+                          <Image src={exp.logo} alt={exp.company} className="w-full h-full object-cover" />
                         </div>
                       )}
                       <div>
@@ -373,7 +378,7 @@ const Portfolio: React.FC = () => {
                 <div key={index} className={`rounded-xl overflow-hidden border ${borderClasses} group transition-all hover:shadow-lg ${darkMode ? 'hover:shadow-violet-900/10' : 'hover:shadow-violet-300/30'}`}>
                   {project.image && (
                     <div className="h-48 overflow-hidden">
-                      <img 
+                      <Image 
                         src={project.image} 
                         alt={project.title} 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
