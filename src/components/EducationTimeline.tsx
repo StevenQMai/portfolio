@@ -56,11 +56,13 @@ const EducationTimeline: React.FC<EducationTimelineProps> = ({
             {edu.logo && (
               <div className="size-10 shrink-0 rounded-full overflow-hidden border border-gray-700 bg-white/10">
                 <Image 
-                src={edu.logo} 
-                alt={edu.school} 
-                width={192} 
-                height={192}
-                className="w-full h-full object-cover" />
+                  src={edu.logo} 
+                  alt={edu.school} 
+                  width={192} 
+                  height={192}
+                  className="w-full h-full object-cover" 
+                  unoptimized
+                />
               </div>
             )}
             <div>

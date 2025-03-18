@@ -255,6 +255,7 @@ const Portfolio: React.FC = () => {
                 width={192} 
                 height={192}
                 className="object-cover w-full h-full"
+                unoptimized
               />
             </div>
           </div>
@@ -323,11 +324,13 @@ const Portfolio: React.FC = () => {
                       {exp.logo && (
                         <div className="size-10 shrink-0 rounded-full overflow-hidden border border-gray-700 bg-white/10">
                           <Image 
-                          src={exp.logo} 
-                          alt={exp.company} 
-                          width={192} 
-                          height={192}
-                          className="w-full h-full object-cover" />
+                            src={exp.logo} 
+                            alt={exp.company} 
+                            width={192} 
+                            height={192}
+                            className="w-full h-full object-cover"
+                            unoptimized
+                          />
                         </div>
                       )}
                       <div>
@@ -391,6 +394,7 @@ const Portfolio: React.FC = () => {
                         width={192} 
                         height={192}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        unoptimized
                       />
                     </div>
                   )}
