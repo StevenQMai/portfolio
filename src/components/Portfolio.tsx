@@ -255,7 +255,6 @@ const Portfolio: React.FC = () => {
                 width={192} 
                 height={192}
                 className="object-cover w-full h-full"
-                unoptimized
               />
             </div>
           </div>
@@ -329,7 +328,6 @@ const Portfolio: React.FC = () => {
                             width={192} 
                             height={192}
                             className="w-full h-full object-cover"
-                            unoptimized
                           />
                         </div>
                       )}
@@ -394,7 +392,6 @@ const Portfolio: React.FC = () => {
                         width={192} 
                         height={192}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        unoptimized
                       />
                     </div>
                   )}

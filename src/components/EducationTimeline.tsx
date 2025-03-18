@@ -61,7 +61,6 @@ const EducationTimeline: React.FC<EducationTimelineProps> = ({
                   width={192} 
                   height={192}
                   className="w-full h-full object-cover" 
-                  unoptimized
                 />
               </div>
             )}
