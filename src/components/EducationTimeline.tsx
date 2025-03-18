@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface EducationItem {
   school: string;
@@ -54,7 +55,12 @@ const EducationTimeline: React.FC<EducationTimelineProps> = ({
           <div className="flex items-center gap-3 mb-2">
             {edu.logo && (
               <div className="size-10 shrink-0 rounded-full overflow-hidden border border-gray-700 bg-white/10">
-                <img src={edu.logo} alt={edu.school} className="w-full h-full object-cover" />
+                <Image 
+                src={edu.logo} 
+                alt={edu.school} 
+                width={192} 
+                height={192}
+                className="w-full h-full object-cover" />
               </div>
             )}
             <div>
