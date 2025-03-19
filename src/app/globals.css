@@ -1,17 +1,23 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@600&family=Lora&display=swap');
 
 html {
     background-color: #030712; /* This matches your dark mode bg-gray-950 color */
     overflow-x: hidden; /* Prevents horizontal scrolling */
-  }
+}
   
   /* This ensures the background color switches with dark/light mode */
-  html.light-mode {
+html.light-mode {
     background-color: #f9fafb; /* This matches your light mode bg-gray-50 color */
-  }
+}
   
-  body {
+body {
     min-height: 100vh;
     overscroll-behavior: none; /* Prevents bounce effect in many browsers */
-  }
+}
 
+  
+
+h1 {
+    font-family: 'Playfair Display', serif;
+}

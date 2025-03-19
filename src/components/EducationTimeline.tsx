@@ -13,15 +13,19 @@ interface EducationTimelineProps {
   themeColors: {
     primaryBorder: string;
     accentBg: string;
+    primary: string;
+    accent: string;
   };
   timelinePointClasses: string;
   timelineTextClasses: string;
+  darkMode: boolean;
 }
 
 const EducationTimeline: React.FC<EducationTimelineProps> = ({ 
   themeColors, 
   timelinePointClasses, 
-  timelineTextClasses 
+  timelineTextClasses,
+  darkMode
 }) => {
   const education: EducationItem[] = [
     {
@@ -51,7 +55,32 @@ const EducationTimeline: React.FC<EducationTimelineProps> = ({
     <div className="space-y-10">
       {education.map((edu, index) => (
         <div key={index} className={`border-l-2 pl-6 relative ${themeColors.primaryBorder}`}>
-          <div className={`absolute left-[-9px] top-0 size-4 rounded-full ${timelinePointClasses}`}></div>
+          {/* Diamond-shaped marker with even glow effect */}
+          <div className="absolute left-[-10px] top-0 flex items-center justify-center">
+            {/* Outer pulse animation */}
+            <div className={`absolute size-6 animate-ping opacity-30 rotate-45 ${themeColors.primary}`}></div>
+            
+            {/* Main diamond shape with consistent glow using box-shadow */}
+            <div 
+              className={`size-5 rotate-45 transform ${darkMode ? 'bg-amber-400' : 'bg-violet-600'} z-10`}
+              style={{
+                boxShadow: darkMode 
+                  ? '0 0 8px 2px rgba(251, 191, 36, 0.5)' 
+                  : '0 0 8px 2px rgba(124, 58, 237, 0.5)'
+              }}
+            ></div>
+            
+            {/* Inner diamond shape */}
+            <div 
+              className={`absolute size-3 rotate-45 transform ${darkMode ? 'bg-amber-300' : 'bg-violet-500'} z-20`}
+            ></div>
+            
+            {/* Center dot */}
+            <div 
+              className={`absolute size-1 rounded-full ${darkMode ? 'bg-white' : 'bg-white'} z-30`}
+            ></div>
+          </div>
+          
           <div className="flex items-center gap-3 mb-2">
             {edu.logo && (
               <div className="size-10 shrink-0 rounded-full overflow-hidden border border-gray-700 bg-white/10">

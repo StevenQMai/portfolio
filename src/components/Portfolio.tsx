@@ -285,6 +285,7 @@ const Portfolio: React.FC = () => {
                     themeColors={themeColors} 
                     timelinePointClasses={timelinePointClasses} 
                     timelineTextClasses={timelineTextClasses} 
+                    darkMode = {darkMode}
                 />
                 </div>
               <div className={`p-6 rounded-xl ${cardBgClasses} border ${borderClasses}`}>
