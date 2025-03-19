@@ -51,7 +51,7 @@ const Portfolio: React.FC = () => {
       { name: "GitHub", url: "https://github.com/StevenQMai", icon: "github" },
       { name: "LinkedIn", url: "https://www.linkedin.com/in/steven-mai7/", icon: "linkedin" },
       { name: "Twitter", url: "https://twitter.com/yourusername", icon: "twitter" },
-      { name: "Email", url: "smai34@gatech.edu", icon: "mail" }
+      { name: "Email", url: "mailto:smai34@gatech.edu", icon: "mail" }
     ],
     skills: [
       "Python", "Java", "JavaScript/TypeScript", "React.js", "Next.js", 
