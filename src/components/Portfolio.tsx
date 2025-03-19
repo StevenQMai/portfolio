@@ -165,26 +165,28 @@ const Portfolio: React.FC = () => {
             <div className="flex items-center gap-6">
               <button 
                 onClick={() => setActiveSection('about')}
-                className={`text-sm ${activeSection === 'about' ? `font-semibold ${themeColors.primary}` : 'opacity-70 hover:opacity-100'} transition`}
+                className={`text-sm ${activeSection === 'about' ? `font-semibold ${themeColors.primary}` : 'opacity-70 hover:opacity-100'} transition cursor-pointer`}
               >
                 about
               </button>
               <button 
                 onClick={() => setActiveSection('work')}
-                className={`text-sm ${activeSection === 'work' ? `font-semibold ${themeColors.primary}` : 'opacity-70 hover:opacity-100'} transition`}
+                className={`text-sm ${activeSection === 'work' ? `font-semibold ${themeColors.primary}` : 'opacity-70 hover:opacity-100'} transition cursor-pointer`}
               >
                 work
               </button>
               <button 
                 onClick={() => setActiveSection('projects')}
-                className={`text-sm ${activeSection === 'projects' ? `font-semibold ${themeColors.primary}` : 'opacity-70 hover:opacity-100'} transition`}
+                className={`text-sm ${activeSection === 'projects' ? `font-semibold ${themeColors.primary}` : 'opacity-70 hover:opacity-100'} transition cursor-pointer`}
               >
                 projects
               </button>
             </div>
             
             {/* Right side with dark mode button */}
-            <button onClick={toggleDarkMode} className={`${themeColors.primary}`}>
+            <button 
+            onClick={toggleDarkMode} 
+            className={`${themeColors.primary} cursor-pointer`}>
               {darkMode ? (
                 <svg xmlns="http://www.w3.org/2000/svg" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
