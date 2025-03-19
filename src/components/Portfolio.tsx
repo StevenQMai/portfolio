@@ -220,6 +220,8 @@ const Portfolio: React.FC = () => {
             <div className="flex flex-wrap gap-4 items-center">
               <a 
                   href="/resume.pdf" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-4 py-2 rounded-md border flex items-center gap-2 transition-all hover:scale-105 bg-white/5 border-gray-700"
               >
                   Resume
