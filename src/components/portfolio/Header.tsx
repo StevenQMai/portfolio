@@ -5,6 +5,7 @@ import { PersonalInfoData, ThemeColors } from './types';
 interface HeaderProps {
   personalInfo: PersonalInfoData;
   themeColors: ThemeColors;
+  darkMode: boolean;
 }
 
 const socialIcons: Record<string, JSX.Element> = {
@@ -25,7 +26,7 @@ const socialIcons: Record<string, JSX.Element> = {
   )
 };
 
-const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors }) => {
+const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) => {
   return (
     <div className="mb-16 flex justify-between items-start gap-12">
       <div className="max-w-xl">
@@ -69,9 +70,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors }) => {
       
       {personalInfo.avatar && (
         <div className="hidden md:block shrink-0">
-          <div className={`size-48 rounded-xl overflow-hidden border-4 ${
-            themeColors.primaryBorder
-          } transition-all duration-300 shadow-[0_0_15px_rgba(245,158,11,0.3)] dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]`}>
+          <div className={`size-48 rounded-xl overflow-hidden border-4 ${darkMode ? 'border-amber-400' : 'border-violet-600'} transition-all duration-300 shadow-[0_0_15px_rgba(245,158,11,0.3)] dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]`}>
             <Image 
               src={personalInfo.avatar} 
               alt={personalInfo.name} 

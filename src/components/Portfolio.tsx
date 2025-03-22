@@ -103,6 +103,7 @@ const Portfolio: React.FC = () => {
         <Header
           personalInfo={personalInfo}
           themeColors={themeColors}
+          darkMode={darkMode}
         />
         
         {activeSection === 'about' && (
