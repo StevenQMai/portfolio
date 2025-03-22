@@ -16,7 +16,7 @@ const Navigation: React.FC<NavigationProps> = ({
   toggleDarkMode,
   themeColors
 }) => {
-  const navClasses = darkMode ? 'bg-gray-900/90 backdrop-blur supports-backdrop-blur:bg-gray-900/80' : 'bg-white/90 backdrop-blur supports-backdrop-blur:bg-white/80';
+  const navClasses = darkMode ? 'bg-gray-950/80' : 'bg-white/80';
   const borderClasses = darkMode ? 'border-gray-800' : 'border-gray-200';
 
   return (
@@ -28,16 +28,15 @@ const Navigation: React.FC<NavigationProps> = ({
               <button
                 key={section}
                 onClick={() => setActiveSection(section)}
-                className={`text-sm ${activeSection === section ? `font-semibold ${themeColors.primary}` : 'opacity-70 hover:opacity-100'} transition cursor-pointer`}
+                className={`text-sm ${activeSection === section ? `font-semibold ${themeColors.primary}` : 'opacity-70 hover:opacity-100'} transition-all duration-300 hover:scale-105`}
               >
                 {section}
               </button>
             ))}
           </div>
-          
-          <button 
-            onClick={toggleDarkMode} 
-            className={`${themeColors.primary} cursor-pointer`}
+          <button
+            onClick={toggleDarkMode}
+            className={`${themeColors.primary} cursor-pointer transition-all duration-300 hover:scale-110`}
           >
             {darkMode ? (
               <svg xmlns="http://www.w3.org/2000/svg" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

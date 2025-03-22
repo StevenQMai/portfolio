@@ -30,22 +30,22 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) 
   return (
     <div className="mb-16 flex justify-between items-start gap-12">
       <div className="max-w-xl">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6">
-          {personalInfo.name} <span className="inline-block animate-wave">👋</span>
+        <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-slide-up">
+          {personalInfo.name} <span className="inline-block animate-float">👋</span>
         </h1>
-        <p className="text-xl opacity-80 mb-6">
+        <p className="text-xl opacity-80 mb-6 animate-slide-up delay-100">
           {personalInfo.title} at {personalInfo.education}
         </p>
-        <p className="text-lg opacity-80 mb-8">
+        <p className="text-lg opacity-80 mb-8 animate-slide-up delay-200">
           {personalInfo.about}
         </p>
         
-        <div className="flex flex-wrap gap-4 items-center">
+        <div className="flex flex-wrap gap-4 items-center animate-slide-up delay-300">
           <a 
             href="/resume.pdf" 
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-md border flex items-center gap-2 transition-all hover:scale-105 bg-white/5 border-gray-700"
+            className="px-4 py-2 rounded-md border flex items-center gap-2 transition-all hover:scale-105 bg-white/5 border-gray-700 hover:animate-border-glow"
           >
             Resume
             <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) 
                 href={link.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`${themeColors.socialIcon} transition-colors`}
+                className={`${themeColors.socialIcon} transition-all hover:scale-110 hover:animate-border-glow`}
               >
                 {link.icon && socialIcons[link.icon]}
               </a>
@@ -70,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) 
       
       {personalInfo.avatar && (
         <div className="hidden md:block shrink-0">
-          <div className={`size-48 rounded-xl overflow-hidden border-4 ${darkMode ? 'border-amber-400' : 'border-violet-600'} transition-all duration-300 shadow-[0_0_15px_rgba(245,158,11,0.3)] dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]`}>
+          <div className={`size-48 rounded-xl overflow-hidden border-4 ${darkMode ? 'border-amber-400' : 'border-violet-600'} transition-all duration-300 animate-float animate-pulse-glow`}>
             <Image 
               src={personalInfo.avatar} 
               alt={personalInfo.name} 
