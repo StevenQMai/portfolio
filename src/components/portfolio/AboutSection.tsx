@@ -17,10 +17,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({ personalInfo, themeColors, 
 
   return (
     <section className="mb-16 animate-fadeIn">
-      <h3 className="text-2xl font-bold mb-8 flex items-center gap-2">
-        <span className="inline-block size-2 rounded-full"></span>
-        About Me
-      </h3>
+      <div className="flex items-center gap-1 mb-8">
+        <span className={`inline-block size-1.5 rounded-full ${themeColors.primary}`}></span>
+        <h3 className="text-3xl font-bold font-['Playfair_Display']">
+          About Me
+        </h3>
+      </div>
       <div className="grid grid-cols-1 gap-8">
         <div className={`p-6 rounded-xl ${cardBgClasses} border ${borderClasses}`}>
           <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">

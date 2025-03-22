@@ -16,10 +16,12 @@ const WorkSection: React.FC<WorkSectionProps> = ({ personalInfo, themeColors, da
 
   return (
     <section className="mb-16 animate-fadeIn">
-      <h3 className="text-2xl font-bold mb-8 flex items-center gap-2">
-        <span className="inline-block size-2 rounded-full"></span>
-        Work Experience
-      </h3>
+      <div className="flex items-center gap-1 mb-8">
+        <span className={`inline-block size-1.5 rounded-full ${themeColors.primary}`}></span>
+        <h3 className="text-3xl font-bold font-['Playfair_Display']">
+          Work Experience
+        </h3>
+      </div>
       
       {personalInfo.experience.length > 0 ? (
         <div className="space-y-10">

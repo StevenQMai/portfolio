@@ -16,21 +16,29 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ personalInfo, themeCo
 
   return (
     <section className="mb-16 animate-fadeIn">
-      <h3 className="text-2xl font-bold mb-8 flex items-center gap-2">
-        <span className="inline-block size-2 rounded-full"></span>
-        Projects
-      </h3>
+      <div className="flex items-center gap-1 mb-8">
+        <span className={`inline-block size-1.5 rounded-full ${themeColors.primary}`}></span>
+        <h3 className="text-3xl font-bold font-['Playfair_Display']">
+          Projects
+        </h3>
+      </div>
       <div className="grid grid-cols-1 gap-8">
         {personalInfo.projects.map((project, index) => (
-          <div key={index} className={`rounded-xl overflow-hidden border ${borderClasses} group transition-all hover:shadow-lg ${darkMode ? 'hover:shadow-violet-900/10' : 'hover:shadow-violet-300/30'}`}>
+          <div 
+            key={index}
+            className={`rounded-xl border overflow-hidden ${
+              darkMode ? 'bg-gray-900/50 border-gray-800' : 'bg-white/50 border-gray-200'
+            } transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}
+          >
             {project.image && (
-              <div className="h-48 overflow-hidden">
+              <div className="w-full h-48 md:h-64 relative">
                 <Image 
                   src={project.image} 
-                  alt={project.title} 
-                  width={192} 
-                  height={192}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  quality={100}
+                  priority={index < 2}
                 />
               </div>
             )}
