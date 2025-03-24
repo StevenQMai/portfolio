@@ -33,10 +33,10 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) 
         <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-slide-up">
           {personalInfo.name} <span className="inline-block animate-float">👋</span>
         </h1>
-        <p className="text-xl opacity-80 mb-6 animate-slide-up delay-100">
+        <p className="text-xl opacity-80 mb-6 animate-slide-up delay-100 transition-colors duration-300">
           {personalInfo.title} at {personalInfo.education}
         </p>
-        <p className="text-lg opacity-80 mb-8 animate-slide-up delay-200">
+        <p className="text-lg opacity-80 mb-8 animate-slide-up delay-200 transition-colors duration-300">
           {personalInfo.about}
         </p>
         
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) 
             href="/resume.pdf" 
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-md border flex items-center gap-2 transition-all hover:scale-105 bg-white/5 border-gray-700 hover:animate-border-glow"
+            className="px-4 py-2 rounded-md border flex items-center gap-2 transition-all duration-300 hover:scale-105 bg-white/5 border-gray-700 hover:animate-border-glow"
           >
             Resume
             <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) 
                 href={link.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`${themeColors.socialIcon} transition-all hover:scale-110 hover:animate-border-glow`}
+                className={`${themeColors.socialIcon} transition-all duration-300 hover:scale-110 hover:animate-border-glow`}
               >
                 {link.icon && socialIcons[link.icon]}
               </a>
