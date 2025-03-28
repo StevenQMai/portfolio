@@ -10,7 +10,7 @@ interface ProjectsSectionProps {
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ personalInfo, themeColors, darkMode }) => {
   const cardBgClasses = darkMode ? 'bg-gray-800/50 backdrop-blur-sm' : 'bg-white shadow-sm';
-  const borderClasses = darkMode ? 'border-gray-800' : 'border-gray-200';
+  // const borderClasses = darkMode ? 'border-gray-800' : 'border-gray-200';
   const techBadgeClasses = darkMode ? 'bg-gray-700/70' : 'bg-gray-100';
   const linkClasses = `${themeColors.primary} ${themeColors.primaryHover}`;
 

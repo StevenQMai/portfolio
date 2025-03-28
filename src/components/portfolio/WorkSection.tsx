@@ -57,7 +57,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({ personalInfo, themeColors, da
           </svg>
           <h4 className="text-xl font-semibold mb-2">No work experience yet</h4>
           <p className="opacity-70 max-w-md mx-auto">
-            I'm currently focused on my education and building projects. Check back soon for updates on my professional journey!
+            I&apos;m currently focused on my education and building projects. Check back soon for updates on my professional journey!
           </p>
         </div>
       )}
