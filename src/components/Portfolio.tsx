@@ -34,20 +34,6 @@ const Portfolio: React.FC = () => {
         link: "https://github.com/StevenQMai/thogbot",
         image: "/images/projects/thog_bot_pfp.png"
       },
-      {
-        title: "Undead Chase",
-        description: "A 2D game where you must survive an endless wave of zombies for as long as possible by dodging and collecting healing power-ups. Watch your health bar, avoid the zombies, and stay alive. There\'s nowhere to hide.",
-        technologies: ["Python, PyGame, Git"],
-        link: "https://github.com/StevenQMai/Zombie-Dodge",
-        image: "/images/projects/zombies_demo.png"
-      },
-      {
-        title: "Nebula Rush",
-        description: "A classic arcade-style game where the player controls a spaceship to navigate through space, avoiding and destroying asteroids. The asteroids increase in speed as the player continues to score.",
-        technologies: ["Python, Git"],
-        link: "https://github.com/StevenQMai/Nebula-Rush",
-        image: "/images/projects/nebula_demo.png"
-      }
     ],
     experience: []
   };
