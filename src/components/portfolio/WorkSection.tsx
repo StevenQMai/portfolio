@@ -42,7 +42,15 @@ const WorkSection: React.FC = () => {
                 </div>
               </div>
               <p className={`text-sm ${timelineTextClasses} mb-3`}>{exp.period}</p>
-              <p className="opacity-80">{exp.description}</p>
+              {exp.bullets && exp.bullets.length > 0 ? (
+                <ul className="list-disc pl-5 space-y-2 opacity-85">
+                  {exp.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              ) : (
+                exp.description && <p className="opacity-80 whitespace-pre-line">{exp.description}</p>
+              )}
             </div>
           ))}
         </div>

@@ -2,6 +2,8 @@ export interface LinkItem {
   name: string;
   url: string;
   icon?: string;
+  /** Shown instead of raw mailto:/tel: text when set (e.g. formatted phone). */
+  displayText?: string;
 }
 
 export interface ProjectItem {
@@ -17,14 +19,19 @@ export interface ExperienceItem {
   company: string;
   position: string;
   period: string;
-  description: string;
+  /** Use bullets for multi-line impact; otherwise a single paragraph. */
+  description?: string;
+  bullets?: string[];
   logo?: string;
 }
 
 export interface PersonalInfoData {
   name: string;
   title: string;
-  education: string;
+  /** School or employer line under the role (e.g. Georgia Tech). */
+  institution: string;
+  /** Short degree / graduation line (e.g. B.S. CE, expected Dec 2027). */
+  degreeLine: string;
   about: string;
   links: LinkItem[];
   skills: string[];

@@ -45,18 +45,21 @@ const Footer: React.FC<FooterProps> = ({ personalInfo, themeColors, darkMode }) 
             © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-x-4 gap-y-2 items-center justify-center md:justify-end">
-            {personalInfo.links.map((link, index) => (
-              <a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`transition ${themeColors.socialIcon}`}
-                aria-label={link.name}
-              >
-                {link.icon && socialIcons[link.icon]}
-              </a>
-            ))}
+            {personalInfo.links.map((link, index) => {
+              if (!link.icon || !socialIcons[link.icon]) return null;
+              const openInNewTab = link.url.startsWith("http");
+              return (
+                <a
+                  key={index}
+                  href={link.url}
+                  {...(openInNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className={`transition ${themeColors.socialIcon}`}
+                  aria-label={link.name}
+                >
+                  {socialIcons[link.icon]}
+                </a>
+              );
+            })}
             <Link
               href="/contact"
               className={`text-sm font-medium ${themeColors.primary} ${themeColors.primaryHover}`}

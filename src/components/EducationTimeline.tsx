@@ -32,10 +32,11 @@ const EducationTimeline: React.FC<EducationTimelineProps> = ({
   const education: EducationItem[] = [
     {
       school: "Georgia Institute of Technology",
-      degree: "Computer Engineering",
-      period: "January 2025 - Present",
-      description: "Currently pursuing a degree in Computer Engineering.",
-      logo: "/images/logos/GT_logo.png"
+      degree: "Computer Engineering (B.S.)",
+      period: "January 2025 – present · expected December 2027",
+      description:
+        "Coursework includes database systems, data structures and algorithms, software engineering principles, programming HW/SW systems, circuit analysis, and differential equations. Active in GT Web Dev (Software Lead) and GT VIP (data science).",
+      logo: "/images/logos/GT_logo.png",
     },
     {
       school: "Georgia State University",

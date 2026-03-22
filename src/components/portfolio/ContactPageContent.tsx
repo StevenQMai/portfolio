@@ -45,6 +45,11 @@ const ContactPageContent: React.FC = () => {
         {personalInfo.links.map((link, index) => {
           const icon = link.icon ? socialIcons[link.icon] : null;
           const isMail = link.icon === "mail";
+          const isPhone = link.url.startsWith("tel:");
+          const openInNewTab = link.url.startsWith("http");
+          const subtitle =
+            link.displayText ??
+            link.url.replace(/^mailto:/, "").replace(/^tel:\+1?/, "");
           return (
             <div
               key={index}
@@ -58,15 +63,15 @@ const ContactPageContent: React.FC = () => {
                 )}
                 <div>
                   <h2 className="font-semibold">{link.name}</h2>
-                  <p className={`text-sm ${muted} truncate`}>{link.url.replace(/^mailto:/, "")}</p>
+                  <p className={`text-sm ${muted} truncate`}>{subtitle}</p>
                 </div>
               </div>
               <a
                 href={link.url}
-                {...(!isMail ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(openInNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className={`shrink-0 inline-flex justify-center px-4 py-2 rounded-md text-sm font-medium border ${border} ${themeColors.primary} hover:opacity-90 transition-opacity`}
               >
-                {isMail ? "Send email" : `Open ${link.name}`}
+                {isMail ? "Send email" : isPhone ? "Call" : `Open ${link.name}`}
               </a>
             </div>
           );
@@ -76,7 +81,7 @@ const ContactPageContent: React.FC = () => {
       <div className={`mt-8 p-5 rounded-xl border ${border} ${cardBg}`}>
         <h2 className="font-semibold mb-2">Resume</h2>
         <p className={`text-sm ${muted} mb-3`}>
-          For recruiters, use the on-page resume or download the resume PDF for applications.
+          Peep my resume 👀
         </p>
         <a
           href="/resume"

@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { usePortfolioTheme } from "@/context/PortfolioThemeContext";
 import { thogBotFeatured } from "@/data/siteContent";
 
@@ -11,6 +10,7 @@ const FeaturedProjectThog: React.FC = () => {
   const cardBg = darkMode ? "bg-gray-800/50 backdrop-blur-sm" : "bg-white shadow-sm";
   const border = darkMode ? "border-gray-800" : "border-gray-200";
   const muted = darkMode ? "text-gray-400" : "text-gray-600";
+  const linkClasses = `${themeColors.primary} ${themeColors.primaryHover}`;
 
   return (
     <section className="mb-16 animate-fadeIn" aria-labelledby="discovery-heading">
@@ -56,11 +56,10 @@ const FeaturedProjectThog: React.FC = () => {
         </div>
         <p className={`text-xs px-4 py-2 ${muted} border-b ${border}`}>
           <span className="font-medium text-inherit">Image credits: </span>
-          Thog Bot avatar graphic — author&apos;s own asset. Secondary image —{" "}
-          <Link href={thogBotFeatured.secondaryCredit.url} className={`underline ${themeColors.primary}`}>
+          Thog Bot avatar graphic — my own asset. Secondary image — my own screenshot.
+          {/* <Link href={thogBotFeatured.secondaryCredit.url} className={`underline ${themeColors.primary}`}>
             {thogBotFeatured.secondaryCredit.label}
-          </Link>
-          .
+          </Link> */}
         </p>
 
         <div className={`p-6 md:p-8 ${cardBg}`}>
@@ -81,13 +80,20 @@ const FeaturedProjectThog: React.FC = () => {
             </ul>
           </div>
           <a
-            href="https://github.com/StevenQMai/thogbot"
+            href={thogBotFeatured.repositoryUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center text-sm font-medium ${themeColors.primary} ${themeColors.primaryHover}`}
+            className={`inline-flex items-center text-sm ${linkClasses} transition-all hover:translate-x-1`}
           >
-            Repository: StevenQMai/thogbot
-            <svg className="size-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            View on GitHub
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-4 ml-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

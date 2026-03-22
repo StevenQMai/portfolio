@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Steven Mai — Portfolio",
   description:
-    "Computer Engineering student at Georgia Tech — projects, resume, career goals, and biography.",
+    "Steven Mai — Georgia Tech Computer Engineering (expected Dec 2027). GT Web Dev, GT VIP, Plot Armor, SpendWise, HarmonyAPI. Resume, projects, and contact.",
 };
 
 export default function RootLayout({

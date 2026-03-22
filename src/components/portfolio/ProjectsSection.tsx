@@ -19,9 +19,9 @@ const ProjectsSection: React.FC = () => {
           Additional portfolio projects
         </h2>
       </div>
-      <p className="opacity-90 mb-8 leading-relaxed max-w-2xl">
+      {/* <p className="opacity-90 mb-8 leading-relaxed max-w-2xl">
         Brief summaries below keep each build scannable; open GitHub for source and commit history.
-      </p>
+      </p> */}
       <div className="grid grid-cols-1 gap-8">
         {projectsToShow.map((project, index) => (
           <div

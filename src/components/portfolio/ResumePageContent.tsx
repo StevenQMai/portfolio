@@ -9,6 +9,8 @@ const ResumePageContent: React.FC = () => {
   const cardBg = darkMode ? "bg-gray-800/50 backdrop-blur-sm" : "bg-white shadow-sm";
   const border = darkMode ? "border-gray-800" : "border-gray-200";
 
+  const edu = resumeSections.education;
+
   return (
     <section className="mb-16 animate-fadeIn">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
@@ -37,47 +39,118 @@ const ResumePageContent: React.FC = () => {
       <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border} space-y-8 leading-relaxed`}>
         <header>
           <h2 className="text-2xl font-bold">{resumeSections.headline}</h2>
-          <p className="opacity-80 mt-2 text-sm md:text-base">{resumeSections.contactLine}</p>
+          <p className="text-lg opacity-90 mt-1">{resumeSections.subhead}</p>
+          <ul className="list-disc pl-5 mt-4 space-y-2 opacity-90 text-sm md:text-base">
+            {resumeSections.contactItems.map((item) => {
+              const external = item.href.startsWith("http");
+              return (
+                <li key={item.label}>
+                  <span className="font-medium">{item.label}: </span>
+                  <a
+                    href={item.href}
+                    className={`${themeColors.primary} ${themeColors.primaryHover} underline-offset-2 hover:underline`}
+                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
+                    {item.display}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </header>
 
         <div>
           <h3 className={`text-lg font-semibold mb-3 ${themeColors.primary}`}>Education</h3>
-          <ul className="space-y-3">
-            {resumeSections.education.map((e, i) => (
-              <li key={i}>
-                <span className="font-medium">{e.school}</span>
-                <span className="opacity-80"> — {e.detail}</span>
-              </li>
+          <p className="font-medium">
+            {edu.school} <span className="font-normal opacity-90">| {edu.degree}</span>
+          </p>
+          <p className={`text-sm mt-1 ${darkMode ? "text-gray-400" : "text-gray-600"}`}>{edu.expected}</p>
+          <p className="text-sm font-medium mt-3 mb-2">Relevant coursework</p>
+          <ul className="list-disc pl-5 space-y-1 opacity-90 text-sm md:text-base">
+            {edu.coursework.map((c) => (
+              <li key={c}>{c}</li>
             ))}
           </ul>
         </div>
 
         <div>
           <h3 className={`text-lg font-semibold mb-3 ${themeColors.primary}`}>Skills</h3>
-          <p className="opacity-90">{resumeSections.skillsSummary}</p>
-        </div>
-
-        <div>
-          <h3 className={`text-lg font-semibold mb-3 ${themeColors.primary}`}>Projects</h3>
-          <ul className="list-disc pl-5 space-y-2 opacity-90">
-            {resumeSections.projects.map((p, i) => (
-              <li key={i}>{p}</li>
-            ))}
-          </ul>
+          <div className="space-y-3 opacity-90 text-sm md:text-base">
+            <p>
+              <span className="font-semibold">Languages: </span>
+              {resumeSections.skills.languages}
+            </p>
+            <p>
+              <span className="font-semibold">Tools/Databases: </span>
+              {resumeSections.skills.tools}
+            </p>
+            <p>
+              <span className="font-semibold">Libraries/Frameworks: </span>
+              {resumeSections.skills.frameworks}
+            </p>
+          </div>
         </div>
 
         <div>
           <h3 className={`text-lg font-semibold mb-3 ${themeColors.primary}`}>Experience</h3>
-          <ul className="list-disc pl-5 space-y-2 opacity-90">
-            {resumeSections.experience.map((x, i) => (
-              <li key={i}>{x}</li>
+          <div className="space-y-8">
+            {resumeSections.experience.map((job, i) => (
+              <div key={i}>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                  <p className="font-semibold">
+                    {job.position} <span className="font-normal opacity-90">| {job.company}</span>
+                  </p>
+                  <p className={`text-sm shrink-0 ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
+                    {job.period}
+                  </p>
+                </div>
+                {job.bullets && (
+                  <ul className="list-disc pl-5 space-y-2 mt-3 opacity-90 text-sm md:text-base">
+                    {job.bullets.map((b, j) => (
+                      <li key={j}>{b}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className={`text-lg font-semibold mb-3 ${themeColors.primary}`}>Projects</h3>
+          <div className="space-y-8">
+            {resumeSections.projects.map((proj) => (
+              <div key={proj.name}>
+                <p className="font-semibold">
+                  {proj.name}{" "}
+                  <span className="font-normal italic opacity-85 text-sm">| {proj.stack}</span>
+                </p>
+                <ul className="list-disc pl-5 space-y-2 mt-3 opacity-90 text-sm md:text-base">
+                  {proj.bullets.map((b, j) => (
+                    <li key={j}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className={`text-lg font-semibold mb-3 ${themeColors.primary}`}>
+            Certifications &amp; accomplishments
+          </h3>
+          <ul className="list-disc pl-5 space-y-2 opacity-90 text-sm md:text-base">
+            {resumeSections.certifications.map((c) => (
+              <li key={c}>{c}</li>
             ))}
           </ul>
         </div>
 
-        <p className="text-sm opacity-90">
-          This on-page resume summarizes the same material as the downloadable file. If anything differs,
-          treat the resume PDF as the canonical export you can attach to applications.
+        <p
+          className={`text-sm opacity-90 pt-2 border-t ${darkMode ? "border-gray-600/50" : "border-gray-300"}`}
+        >
+          This page mirrors my LaTeX resume. If anything differs from the PDF, treat the downloaded file as
+          the canonical version for applications.
         </p>
       </div>
     </section>

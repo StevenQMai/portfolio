@@ -1,55 +1,97 @@
+import type { ExperienceItem } from "@/components/portfolio/types";
+
+/** Shared with Experience page and on-site resume (aligned with LaTeX resume). */
+export const workExperience: ExperienceItem[] = [
+  {
+    company: "GT Web Dev",
+    position: "Software Lead",
+    period: "Jan 2026 – Present",
+    bullets: [
+      "Led a 9-engineer team using pod-based sprints and CI/CD automation to launch a campus event platform, driving 60% weekly engagement across 150+ beta users.",
+      "Architected a Next.js/Django platform with JWT auth and 10+ REST endpoints, supporting 300+ live events.",
+      "Integrated PostgreSQL for robust data modeling to reduce API response times by 40%, ensuring platform stability.",
+    ],
+  },
+  {
+    company: "GT VIP",
+    position: "Data Science Intern",
+    period: "Jan 2026 – Present",
+    bullets: [
+      "Built Python scripts to automate pre-processing and labeling of 40+ hours of human and AI voice data.",
+      "Developed pipelines to extract pitch, cadence, and spectral data for large-scale emotional tonality analysis.",
+      "Implemented statistical workflows to quantify recognition accuracy between human and AI-generated voices.",
+    ],
+  },
+  {
+    company: "Clayton State University",
+    position: "Software Engineer Intern",
+    period: "Jan 2024 – May 2024",
+    bullets: [
+      "Designed and implemented a photon-based hardware random number generator to communicate with optical hardware, enabling automated data acquisition and statistical entropy validation.",
+      "Built a Python-based data processing pipeline to analyze 1,000+ photon samples, improving validation accuracy by 25% and reducing runtime by 15% through optimized data structures and batch processing.",
+      "Awarded 1st place at the Clayton State University 2024 CIMS Symposium.",
+    ],
+  },
+];
+
+export interface ResumeProjectBlock {
+  name: string;
+  stack: string;
+  bullets: string[];
+}
+
 /** Long-form copy for portfolio pages (word counts verified during content review). */
 
 export const welcomeBullets = [
-  "I am a Computer Engineering student at Georgia Tech who enjoys turning messy problems into software people can actually use—whether that is a Discord bot for a student server, a dashboard that makes data legible, or a tight game loop that feels fair and fun.",
-  "My path started in Georgia: community college research on hardware randomness, a transition through Georgia State, and now rigorous CE coursework at Tech. That mix taught me to be scrappy, precise, and collaborative.",
-  "Technically, I gravitate toward Python and TypeScript ecosystems, but I care most about architecture: clear modules, predictable state, and interfaces that do not fight the user.",
-  "If you are here to hire, collaborate, or swap project ideas, welcome—use Contact for email and profiles; the Resume page for a resume you can print or save as PDF; Projects for the Discovery feature and other builds; and Career Goals for where I am headed.",
+  "I am a Computer Engineering student at Georgia Tech (B.S. CE, expected December 2027). I lead software for GT Web Dev, analyze voice data in GT VIP, and ship products like Plot Armor and SpendWise—from browser extensions and Android apps to full-stack hackathon builds.",
+  "My path started in Georgia with research on a photon-based hardware RNG at Clayton State (1st place, 2024 CIMS Symposium), then coursework at Georgia State and now rigorous CE work at Tech. That path taught me to connect hardware, data, and polished user experiences.",
+  "Technically, I gravitate toward TypeScript/React, Python data pipelines, and solid backend design—JWT auth, PostgreSQL modeling, CI/CD, and APIs that stay fast under real load.",
+  "If you are here to hire, collaborate, or swap project ideas, welcome—use Contact for phone and email; the Resume page mirrors my LaTeX CV; Projects for the Discovery feature and other builds; and Career Goals for how I am thinking about the next few years.",
 ];
 
 export const biographyParagraphs = [
-  "I grew up in Georgia and found my way to computer science through curiosity about how machines make decisions under noise—an interest that first showed up as research on hardware random number generation at Clayton State University. That experience pushed me to think about probability, testing, and the gap between a clever idea and something you can defend in a lab notebook or a code review. I carried those habits forward into upper-level coursework and personal builds where reproducibility matters as much as features.",
-  "After Clayton State, I spent a semester at Georgia State University before transferring to the Georgia Institute of Technology to study Computer Engineering. The move was deliberate: I wanted a curriculum that would force me to understand computing end to end—from logic and systems to the software layers people touch every day. Along the way I have balanced classes with independent projects, because the fastest feedback loop for me is still shipping something small, watching it break, and fixing the seams.",
-  "Outside the terminal, I recharge with music, games, and time with friends—activities that quietly influence how I design interfaces and pacing in software. I notice when a bot response feels abrupt, when a dashboard overwhelms, or when a tutorial step assumes knowledge the user does not have yet. Empathy is not separate from engineering; it is a constraint that makes the product better.",
-  "What sets me apart is the combination of persistence and communication. I document what I build, I refactor when names stop matching reality, and I am comfortable admitting unknowns early so teams can route around them. I am looking for roles where I can deepen distributed systems, backend design, and product-minded delivery while contributing to a culture that values mentorship and craft.",
+  "I grew up in Georgia and found computer engineering through problems that sit at the boundary of hardware and software—starting with a photon-based hardware random number generator at Clayton State, where I learned to pair bench-top experiments with Python pipelines, statistical validation, and clear write-ups. That work earned 1st place at the 2024 CIMS Symposium and set the tone for how I still approach engineering: measure, document, and iterate.",
+  "After Georgia State coursework, I transferred to Georgia Tech for a B.S. in Computer Engineering (expected December 2027). Here I combine systems thinking with full-stack delivery: leading GT Web Dev’s Next.js/Django campus platform with JWT auth and PostgreSQL, and contributing to GT VIP as a data science intern building Python workflows over large voice datasets. Side projects like Plot Armor (Chrome extension, hybrid AI spoiler detection) and SpendWise (Android, Firebase, MVVM) keep me close to real users and real constraints.",
+  "Outside the terminal, I recharge with music, games, and time with friends—habits that show up in how I tune UX details, error copy, and pacing in the products I build.",
+  "What sets me apart is ownership across the stack: I am comfortable in sprint leadership and CI/CD, in SQL and API design, and in shipping interfaces people touch every day. I am looking for roles that deepen backend and platform skills while keeping product impact visible.",
 ];
 
 export const careerVision =
-  "Long term, I want to lead development of systems that thousands of people rely on daily—platforms where reliability, observability, and thoughtful UX coexist. I see myself as a senior engineer or tech lead who still writes code, mentors newer developers, and partners with product to keep technical debt visible rather than invisible.";
+  "Near term, I want a software engineering internship or new-grad role where I ship production features, learn from strong code review, and grow on teams that care about reliability and measurable user impact. Long term, I want to lead systems that thousands rely on—balancing observability, performance, and UX—while still writing code and mentoring others.";
 
 export const careerMilestones = [
   {
-    timeframe: "2025 – 2026",
-    title: "Solidify core credentials",
+    timeframe: "2026 – Dec 2027",
+    title: "Finish strong at Georgia Tech",
     description:
-      "Excel in CE fundamentals, complete impactful coursework projects, and maintain a public portfolio that demonstrates growth quarter over quarter.",
+      "Complete the B.S. in Computer Engineering while scaling GT Web Dev’s platform and deepening the VIP data-science contribution—using both as proof points for recruiting and technical depth.",
   },
   {
-    timeframe: "2026 – 2028",
-    title: "Professional experience at scale",
+    timeframe: "2027 – 2028",
+    title: "Launch post-grad career",
     description:
-      "Secure internships and then full-time roles where I ship production services, participate in on-call culture responsibly, and learn how great teams operate end to end.",
+      "Convert internship and project experience into a full-time software role (full-stack or backend-leaning), with clear ownership of features, on-call or reliability practices where applicable, and a habit of shipping with metrics.",
   },
   {
     timeframe: "2028 – 2032",
-    title: "Depth as a specialist",
+    title: "Specialize with impact",
     description:
-      "Choose a lane—likely backend/platform or developer tooling—and accumulate depth: performance tuning, security reviews, and cross-team technical design leadership.",
+      "Go deeper in a chosen lane—likely distributed systems, data platforms, or developer tooling—with security, performance tuning, and cross-team design work as regular responsibilities.",
   },
   {
     timeframe: "2032+",
-    title: "Leadership without leaving the craft",
+    title: "Lead without leaving the keyboard",
     description:
-      "Grow into staff or lead scope where I set technical direction, grow teammates, and keep customer outcomes tied to engineering decisions.",
+      "Grow toward staff or lead scope: technical direction, mentorship, and tying engineering decisions to customer and business outcomes.",
   },
 ];
 
 export const careerSteps = [
-  "Publish two substantial technical write-ups per year (project retros, architecture notes, or open-source README depth) to sharpen communication and attract collaborators.",
-  "Contribute meaningfully to one open-source or community project annually—issues, docs, or features—so I practice reading unfamiliar codebases under real constraints.",
-  "Build a disciplined interview prep habit: data structures, systems basics, and behavioral stories grounded in real projects rather than last-minute cramming.",
-  "Seek mentors and peers in target industries (cloud, security, fintech, or developer platforms) through clubs, alumni networks, and intentional informational conversations.",
-  "Track metrics for each flagship project: latency, error rates, user adoption, or qualitative feedback—so I can speak about impact with numbers and narratives.",
+  "Keep Plot Armor, SpendWise, and HarmonyAPI READMEs and demos recruiter-ready—with clear architecture diagrams, metrics, and honest limitations.",
+  "Maintain a disciplined interview loop: LeetCode-style practice, systems design stories grounded in Next.js/Django, PostgreSQL, and VIP pipelines, and behavioral examples from GT Web Dev leadership.",
+  "Publish at least two technical write-ups per year (architecture notes, retro, or open-source docs) to sharpen communication.",
+  "Grow network through GT clubs, alumni, and target companies’ engineer communities; ask for feedback on resume and project pitches early.",
+  "Track quantifiable outcomes for each major role and project (latency improvements, engagement %, dataset sizes, uptime) so interviews stay concrete.",
 ];
 
 /** Featured project: Thog Bot — 500+ word overview (counts toward 1000+ word ePortfolio total). */
@@ -60,12 +102,13 @@ export const thogBotFeatured = {
   title: "Thog Bot — building a community-ready Discord assistant",
   heroImage: "/images/projects/thog_bot_pfp.png",
   heroAlt: "Thog Bot project avatar graphic",
-  secondaryImage: "/images/projects/nebula_demo.png",
-  secondaryAlt: "Screenshot from the author’s Nebula PyGame demo showing visual polish habits reused across projects",
+  secondaryImage: "/images/projects/plot_armor_dashboard.png",
+  secondaryAlt: "Screenshot from the Plot Armor Chrome extension dashboard and related UI work",
   secondaryCredit: {
-    label: "Author’s own screenshot (Nebula demo)",
+    label: "Author’s own screenshot (Plot Armor)",
     url: "/projects",
   },
+  repositoryUrl: "https://github.com/StevenQMai/thogbot",
   impactBullets: [
     "Designed modular command handlers so features can ship incrementally without destabilizing core message routing.",
     "Prioritized predictable latency for frequent commands so the bot feels responsive during busy server spikes.",
@@ -81,33 +124,78 @@ export const thogBotFeatured = {
   ],
 };
 
+export const resumeProjects: ResumeProjectBlock[] = [
+  {
+    name: "Plot Armor",
+    stack: "React, TypeScript, Tailwind CSS, Firebase, Groq LLM",
+    bullets: [
+      "Developed a Chrome extension with 100+ active users that censors spoilers on webpages using hybrid AI detection, achieving 92% spoiler detection accuracy through optimized NLP keyword matching and ML APIs.",
+      "Constructed popup interface processing 500+ daily interactions with real-time stats, user controls, and confidence thresholds improving user satisfaction by 40%.",
+      "Designed Firebase/Firestore backend managing 50,000+ records, and rate limiting maintaining 99.5% uptime.",
+    ],
+  },
+  {
+    name: "SpendWise",
+    stack: "Java, Android, Firebase, MVVM",
+    bullets: [
+      "Built a full-stack mobile application using Java and Android SDK with Firebase backend integration, featuring budget management, expense tracking, social savings circles with real-time chat, and an AI-powered financial chatbot.",
+      "Implemented Firebase Authentication supporting 250+ registered users with session management. Integrated Firestore for real-time data, achieving 99.8% sync reliability and reducing data fetch latency by 40%.",
+      "Engineered using MVVM, implementing a Singleton Pattern for centralized Firebase and database managers to ensure consistent data access and reduce memory leaks by 25%.",
+    ],
+  },
+  {
+    name: "HarmonyAPI",
+    stack: "Python, Flask, React, TypeScript, Groq LLM, PostgreSQL, Docker",
+    bullets: [
+      "Developed an AI-powered medical search platform processing 1,000+ queries during HackGT, enabling healthcare providers to retrieve results with 95% query accuracy and generate summaries 60% faster than manual research.",
+      "Integrated Groq LLM API to perform semantic search across healthcare datasets, reducing average response time to under 2 seconds and handling 50+ concurrent users while maintaining 99% uptime during the competition.",
+      "Delivered a full-stack solution in under 36 hours using TypeScript/React and Dockerized Flask/PostgreSQL, enabling 40% faster deployment and 5,000+ transactions.",
+    ],
+  },
+];
+
+export const resumeContactItems = [
+  { label: "Phone", display: "470-357-8505", href: "tel:+14703578505" },
+  { label: "Email", display: "smai34@gatech.edu", href: "mailto:smai34@gatech.edu" },
+  {
+    label: "LinkedIn",
+    display: "linkedin.com/in/steven-mai7",
+    href: "https://www.linkedin.com/in/steven-mai7/",
+  },
+  { label: "GitHub", display: "github.com/StevenQMai", href: "https://github.com/StevenQMai" },
+] as const;
+
 export const resumeSections = {
-  headline: "Steven Mai — Computer Engineering (Georgia Tech)",
-  contactLine: "Email: smai34@gatech.edu · GitHub: github.com/StevenQMai · LinkedIn: linkedin.com/in/steven-mai7",
-  education: [
-    {
-      school: "Georgia Institute of Technology",
-      detail: "B.S. Computer Engineering — in progress (Jan 2025 – present)",
-    },
-    {
-      school: "Georgia State University",
-      detail: "Computer Science coursework — Aug 2024 to Dec 2024",
-    },
-    {
-      school: "Clayton State University",
-      detail: "B.S. Computer Science coursework — Aug 2022 to May 2024; research in hardware random number generation",
-    },
+  headline: "Steven Mai",
+  subhead: "B.S. Computer Engineering — Georgia Institute of Technology",
+  contactItems: resumeContactItems,
+  education: {
+    school: "Georgia Institute of Technology",
+    degree: "B.S. Computer Engineering",
+    expected: "Expected: December 2027",
+    coursework: [
+      "Database Systems",
+      "Data Structures and Algorithms",
+      "Software Engineering Principles",
+      "Programming HW/SW Systems",
+      "Circuit Analysis",
+      "Differential Equations",
+    ],
+  },
+  skills: {
+    languages:
+      "JavaScript, TypeScript, Python, Java, C, C++, SQL, HTML/CSS, RISC-V",
+    tools:
+      "MySQL, MongoDB, PostgreSQL, Firebase, Supabase, AWS S3, Vercel, Docker, Git, CI/CD",
+    frameworks:
+      "React, Node.js, Express, Flask, FastAPI, Tailwind CSS, JUnit, REST APIs",
+  },
+  certifications: [
+    "The Odin Project — Foundations, Full-Stack JavaScript, React",
+    "CodePath — Technical Interview Prep 101",
   ],
-  skillsSummary:
-    "Languages: Python, Java, JavaScript/TypeScript · Web: React, Next.js, Tailwind CSS · Tools: Git, Node.js · Other: PyGame, Tkinter, introductory embedded/systems coursework",
-  projects: [
-    "Thog Bot — Discord bot with modular commands, integrations, and documented setup (Python, Discord APIs).",
-    "Plot Armor Dashboard — responsive analytics-style dashboard emphasizing clarity and maintainable UI structure.",
-    "Game prototypes — Nebula and Zombies demos in PyGame exploring mechanics, collision feedback, and iteration speed.",
-  ],
-  experience: [
-    "Independent & coursework — 2022–present: personal tools, game prototypes, and collaborative class work with emphasis on documentation and reproducible builds.",
-  ],
+  experience: workExperience,
+  projects: resumeProjects,
 };
 
 export const imageCredits = {

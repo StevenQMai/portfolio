@@ -53,9 +53,25 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-center md:text-left animate-slide-up">
           {personalInfo.name} <span className="inline-block md:animate-float">👋</span>
         </h1>
-        <p className="text-lg sm:text-xl opacity-90 mb-6 animate-slide-up delay-100 transition-colors duration-300 text-center md:text-left">
-          {personalInfo.title} · {personalInfo.education}
-        </p>
+        <div
+          className={`mb-6 flex flex-col gap-2 sm:gap-3 animate-slide-up delay-100 text-center md:text-left items-center md:items-start md:border-l-2 md:pl-5 ${darkMode ? "md:border-amber-500/70" : "md:border-violet-500/70"}`}
+        >
+          <p
+            className={`text-lg sm:text-xl font-semibold tracking-tight ${themeColors.primary}`}
+          >
+            {personalInfo.title}
+          </p>
+          <p
+            className={`text-base sm:text-lg ${darkMode ? "text-gray-300" : "text-gray-600"}`}
+          >
+            {personalInfo.institution}
+          </p>
+          <span
+            className={`inline-flex w-fit rounded-full border-2 px-4 py-1.5 text-sm font-medium ${themeColors.primaryBorder} ${themeColors.primaryBg} ${themeColors.primary}`}
+          >
+            {personalInfo.degreeLine}
+          </span>
+        </div>
         <p className="text-base sm:text-lg opacity-90 mb-8 animate-slide-up delay-200 transition-colors duration-300 leading-relaxed text-center md:text-left">
           {personalInfo.about}
         </p>
