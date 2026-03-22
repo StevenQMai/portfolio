@@ -18,10 +18,10 @@ const HomeView: React.FC = () => {
       <section className={`mb-16 p-6 rounded-xl border ${cardBg} ${border} animate-fadeIn`}>
         <div className="flex items-center gap-1 mb-4">
           <span className={`inline-block size-1.5 rounded-full ${themeColors.primary}`} />
-          <h2 className="text-2xl font-bold font-['Playfair_Display']">Welcome</h2>
+          <h2 className="text-2xl font-bold font-['Playfair_Display']">Welcome :)</h2>
         </div>
         <p className="text-lg opacity-90 mb-6 leading-relaxed">
-          Thanks for visiting—this site is my home on the web for academics, projects, and the story
+          This site is my home on the web for academics, projects, and the story
           behind how I work.
         </p>
         <ul className="space-y-4 opacity-90 leading-relaxed list-none">

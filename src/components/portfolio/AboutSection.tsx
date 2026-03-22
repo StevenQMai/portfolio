@@ -3,7 +3,7 @@
 import React from "react";
 import EducationTimeline from "../EducationTimeline";
 import { usePortfolioTheme } from "@/context/PortfolioThemeContext";
-import { biographyParagraphs, imageCredits } from "@/data/siteContent";
+import { biographyParagraphs } from "@/data/siteContent";
 
 const AboutSection: React.FC = () => {
   const { personalInfo, themeColors, darkMode } = usePortfolioTheme();
@@ -12,7 +12,6 @@ const AboutSection: React.FC = () => {
   const badgeBgClasses = `${themeColors.primaryBg} ${themeColors.primary}`;
   const timelinePointClasses = `${themeColors.accentBg} ring-4 ${darkMode ? "ring-gray-900" : "ring-white"}`;
   const timelineTextClasses = darkMode ? "text-gray-400" : "text-gray-600";
-  const muted = darkMode ? "text-gray-400" : "text-gray-600";
 
   return (
     <section className="mb-16 animate-fadeIn">
@@ -55,7 +54,6 @@ const AboutSection: React.FC = () => {
             timelineTextClasses={timelineTextClasses}
             darkMode={darkMode}
           />
-          <p className={`text-xs mt-6 ${muted} leading-relaxed`}>{imageCredits.institutionalLogos}</p>
         </div>
         <div className={`p-6 rounded-xl ${cardBgClasses} border ${borderClasses}`}>
           <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">

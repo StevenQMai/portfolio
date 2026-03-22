@@ -3,7 +3,6 @@
 import React, { JSX } from "react";
 import Link from "next/link";
 import { PersonalInfoData, ThemeColors } from "./types";
-import { imageCredits } from "@/data/siteContent";
 
 interface FooterProps {
   personalInfo: PersonalInfoData;
@@ -31,15 +30,10 @@ const socialIcons: Record<string, JSX.Element> = {
 
 const Footer: React.FC<FooterProps> = ({ personalInfo, themeColors, darkMode }) => {
   const footerBorderClasses = darkMode ? "border-gray-800" : "border-gray-200";
-  const muted = darkMode ? "text-gray-500" : "text-gray-600";
 
   return (
     <footer className={`py-8 border-t ${footerBorderClasses} relative z-10`}>
       <div className="max-w-3xl mx-auto px-6 flex flex-col gap-6">
-        <p className={`text-xs ${muted} leading-relaxed`}>
-          <span className="font-medium text-inherit">Logo note: </span>
-          {imageCredits.institutionalLogos}
-        </p>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm opacity-80">
             © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.

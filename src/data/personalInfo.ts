@@ -7,7 +7,7 @@ export const personalInfo: PersonalInfoData = {
   institution: "Georgia Institute of Technology",
   degreeLine: "B.S. CE, expected Dec 2027",
   about:
-    "Computer Engineering student at Georgia Tech (expected December 2027). I lead engineering for GT Web Dev’s campus platform, build data pipelines in GT VIP for voice-analysis research, and ship user-facing products—from Plot Armor (Chrome extension) and SpendWise (Android) to HarmonyAPI (HackGT full-stack). Earlier, I interned at Clayton State on a photon-based hardware RNG (1st place, 2024 CIMS Symposium).",
+    "Computer Engineering student at Georgia Tech (expected December 2027). I lead engineering for GT Web Dev’s campus platform, build data pipelines in GT VIP for voice-analysis research, and ship user-facing products—from Plot Armor (Chrome extension) and SpendWise (Android) to HarmonyAPI (HackGT full-stack). Before that, I interned at Clayton State on a photon-based hardware RNG (1st place, 2024 CIMS Symposium).",
   avatar: "/images/profile/selfie_copy.jpg",
   links: [
     { name: "Phone", url: "tel:+14703578505", displayText: "470-357-8505" },

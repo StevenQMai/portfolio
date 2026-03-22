@@ -133,12 +133,11 @@ h1 {
   }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+/* Register as theme animations so `md:`, `hover:`, etc. variants work (plain `.animate-float` did not). */
+@theme {
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-border-glow: border-glow 3s ease-in-out infinite;
 }
 
 .animate-slide-up {
@@ -151,10 +150,6 @@ h1 {
 
 .animate-scale-in {
   animation: scale-in 0.5s ease-out forwards;
-}
-
-.animate-border-glow {
-  animation: border-glow 3s ease-in-out infinite;
 }
 
 .delay-100 {
