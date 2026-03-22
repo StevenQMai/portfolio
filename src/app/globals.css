@@ -163,3 +163,45 @@ h1 {
 .delay-300 {
   animation-delay: 300ms;
 }
+
+/* Pictures page: edge-fade on horizontal filmstrip */
+.pictures-filmstrip-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black min(8%, 2.5rem),
+    black max(92%, calc(100% - 2.5rem)),
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black min(8%, 2.5rem),
+    black max(92%, calc(100% - 2.5rem)),
+    transparent
+  );
+}
+
+/* Scroll-driven reveal for sticky stack (vertical page scroll) */
+@keyframes pictures-stack-reveal {
+  from {
+    opacity: 0.35;
+    filter: brightness(0.85);
+    transform: scale(0.94) translateY(1.75rem);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1);
+    transform: scale(1) translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .pictures-stack-reveal {
+      animation: pictures-stack-reveal linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% cover 42%;
+    }
+  }
+}
