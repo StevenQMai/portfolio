@@ -164,34 +164,12 @@ h1 {
   animation-delay: 300ms;
 }
 
-/* Pictures page: edge-fade on horizontal filmstrip */
-.pictures-filmstrip-mask {
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black min(8%, 2.5rem),
-    black max(92%, calc(100% - 2.5rem)),
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black min(8%, 2.5rem),
-    black max(92%, calc(100% - 2.5rem)),
-    transparent
-  );
-}
-
-/* Scroll-driven reveal for sticky stack (vertical page scroll) */
+/* Pictures page: subtle scroll-linked motion only (opacity/brightness made photos look “broken”) */
 @keyframes pictures-stack-reveal {
   from {
-    opacity: 0.35;
-    filter: brightness(0.85);
-    transform: scale(0.94) translateY(1.75rem);
+    transform: scale(0.97) translateY(0.75rem);
   }
   to {
-    opacity: 1;
-    filter: brightness(1);
     transform: scale(1) translateY(0);
   }
 }

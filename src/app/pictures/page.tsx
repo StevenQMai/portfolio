@@ -4,7 +4,7 @@ import PicturesPageView from "@/components/portfolio/PicturesPageView";
 export const metadata: Metadata = {
   title: "Pictures — Steven Mai",
   description:
-    "Photo gallery: scrollable filmstrip and stacking image layout. Placeholder images for portfolio.",
+    "Photo gallery: stacking scroll layout. Placeholder images for portfolio.",
 };
 
 export default function PicturesPage() {
