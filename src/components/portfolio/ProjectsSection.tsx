@@ -15,8 +15,13 @@ const ProjectsSection: React.FC = () => {
     <section className="mb-16 animate-fadeIn">
       <div className="flex items-center gap-1 mb-8">
         <span className={`inline-block size-1.5 rounded-full ${themeColors.primary}`} />
-        <h2 className="text-3xl font-bold font-['Playfair_Display']">More projects</h2>
+        <h2 id="additional-projects" className="text-2xl sm:text-3xl font-bold font-['Playfair_Display']">
+          Additional portfolio projects
+        </h2>
       </div>
+      <p className="opacity-90 mb-8 leading-relaxed max-w-2xl">
+        Brief summaries below keep each build scannable; open GitHub for source and commit history.
+      </p>
       <div className="grid grid-cols-1 gap-8">
         {projectsToShow.map((project, index) => (
           <div

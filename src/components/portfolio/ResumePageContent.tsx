@@ -14,14 +14,15 @@ const ResumePageContent: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
         <div className="flex items-center gap-1">
           <span className={`inline-block size-1.5 rounded-full ${themeColors.primary}`} />
-          <h1 className="text-3xl font-bold font-['Playfair_Display']">Résumé</h1>
+          <h1 className="text-3xl font-bold font-['Playfair_Display']">Resume</h1>
         </div>
         <a
           href="/resume.pdf"
           download
           className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md border text-sm font-medium transition-all hover:scale-[1.02] ${border} ${themeColors.primary}`}
+          aria-label="Download resume as PDF"
         >
-          Download PDF
+          Download resume (PDF)
           <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
               strokeLinecap="round"
@@ -74,9 +75,9 @@ const ResumePageContent: React.FC = () => {
           </ul>
         </div>
 
-        <p className="text-sm opacity-70">
-          This on-page version summarizes the same material as the PDF. If anything differs, treat the
-          PDF as the canonical export you can attach to applications.
+        <p className="text-sm opacity-90">
+          This on-page resume summarizes the same material as the downloadable file. If anything differs,
+          treat the resume PDF as the canonical export you can attach to applications.
         </p>
       </div>
     </section>

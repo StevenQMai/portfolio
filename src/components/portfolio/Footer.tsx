@@ -41,10 +41,10 @@ const Footer: React.FC<FooterProps> = ({ personalInfo, themeColors, darkMode }) 
           {imageCredits.institutionalLogos}
         </p>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm opacity-70">
+          <p className="text-sm opacity-80">
             © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
           </p>
-          <div className="flex gap-4 items-center">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 items-center justify-center md:justify-end">
             {personalInfo.links.map((link, index) => (
               <a
                 key={index}
@@ -58,8 +58,14 @@ const Footer: React.FC<FooterProps> = ({ personalInfo, themeColors, darkMode }) 
               </a>
             ))}
             <Link
+              href="/contact"
+              className={`text-sm font-medium ${themeColors.primary} ${themeColors.primaryHover}`}
+            >
+              Contact
+            </Link>
+            <Link
               href="/resume"
-              className={`text-sm ${themeColors.primary} ${themeColors.primaryHover}`}
+              className={`text-sm font-medium ${themeColors.primary} ${themeColors.primaryHover}`}
             >
               Resume
             </Link>

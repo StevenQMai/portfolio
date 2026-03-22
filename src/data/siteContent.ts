@@ -4,7 +4,7 @@ export const welcomeBullets = [
   "I am a Computer Engineering student at Georgia Tech who enjoys turning messy problems into software people can actually use—whether that is a Discord bot for a student server, a dashboard that makes data legible, or a tight game loop that feels fair and fun.",
   "My path started in Georgia: community college research on hardware randomness, a transition through Georgia State, and now rigorous CE coursework at Tech. That mix taught me to be scrappy, precise, and collaborative.",
   "Technically, I gravitate toward Python and TypeScript ecosystems, but I care most about architecture: clear modules, predictable state, and interfaces that do not fight the user.",
-  "If you are here to hire, collaborate, or swap project ideas, welcome—jump to Resume for a downloadable file, Projects for depth, or Career Goals to see where I am headed.",
+  "If you are here to hire, collaborate, or swap project ideas, welcome—use Contact for email and profiles; the Resume page for a resume you can print or save as PDF; Projects for the Discovery feature and other builds; and Career Goals for where I am headed.",
 ];
 
 export const biographyParagraphs = [
@@ -52,8 +52,11 @@ export const careerSteps = [
   "Track metrics for each flagship project: latency, error rates, user adoption, or qualitative feedback—so I can speak about impact with numbers and narratives.",
 ];
 
-/** Featured project: Thog Bot — 500+ word overview (body text below). */
+/** Featured project: Thog Bot — 500+ word overview (counts toward 1000+ word ePortfolio total). */
 export const thogBotFeatured = {
+  sectionHeading: "Discovery project feature",
+  sectionSubheading:
+    "In-depth technical write-up for this ePortfolio (assignment requirement). The sections below use clear headings so reviewers can scan goals, implementation, and outcomes quickly.",
   title: "Thog Bot — building a community-ready Discord assistant",
   heroImage: "/images/projects/thog_bot_pfp.png",
   heroAlt: "Thog Bot project avatar graphic",

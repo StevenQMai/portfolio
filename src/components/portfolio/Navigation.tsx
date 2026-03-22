@@ -11,13 +11,15 @@ interface NavigationProps {
   themeColors: ThemeColors;
 }
 
+/** Order follows a natural visitor path: introduction → background → work samples → contact → credentials. */
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/experience", label: "Experience" },
-  { href: "/resume", label: "Resume" },
-  { href: "/career-goals", label: "Career Goals" },
   { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
+  { href: "/resume", label: "Resume" },
+  { href: "/experience", label: "Experience" },
+  { href: "/career-goals", label: "Career goals" },
 ] as const;
 
 const Navigation: React.FC<NavigationProps> = ({
@@ -31,11 +33,12 @@ const Navigation: React.FC<NavigationProps> = ({
 
   return (
     <nav
-      className={`sticky top-0 z-50 ${navClasses} py-4 border-b ${borderClasses} backdrop-blur-md`}
+      aria-label="Primary"
+      className={`sticky top-0 z-50 ${navClasses} py-3 sm:py-4 border-b ${borderClasses} backdrop-blur-md`}
     >
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <div className="-mx-1 flex flex-nowrap gap-x-3 gap-y-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0 scroll-smooth [scrollbar-width:thin]">
             {navItems.map(({ href, label }) => {
               const active =
                 href === "/"
@@ -45,7 +48,8 @@ const Navigation: React.FC<NavigationProps> = ({
                 <Link
                   key={href}
                   href={href}
-                  className={`text-sm ${active ? `font-semibold ${themeColors.primary}` : "opacity-70 hover:opacity-100"} transition-all duration-300 hover:scale-105`}
+                  aria-current={active ? "page" : undefined}
+                  className={`shrink-0 text-sm sm:text-[0.9375rem] px-1 py-1 rounded-md ${active ? `font-semibold ${themeColors.primary}` : "opacity-75 hover:opacity-100"} transition-opacity duration-200`}
                 >
                   {label}
                 </Link>
@@ -55,7 +59,7 @@ const Navigation: React.FC<NavigationProps> = ({
           <button
             type="button"
             onClick={toggleDarkMode}
-            className={`${themeColors.primary} cursor-pointer transition-all duration-300 hover:scale-110 self-start sm:self-auto`}
+            className={`${themeColors.primary} cursor-pointer transition-opacity duration-200 hover:opacity-90 self-start sm:self-auto rounded-md p-1`}
             aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
           >
             {darkMode ? (
@@ -65,6 +69,7 @@ const Navigation: React.FC<NavigationProps> = ({
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -80,6 +85,7 @@ const Navigation: React.FC<NavigationProps> = ({
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"

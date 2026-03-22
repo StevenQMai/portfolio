@@ -31,63 +31,11 @@ const socialIcons: Record<string, JSX.Element> = {
 
 const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) => {
   return (
-    <div className="mb-16 flex justify-between items-start gap-12">
-      <div className="max-w-xl">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-slide-up">
-          {personalInfo.name} <span className="inline-block animate-float">👋</span>
-        </h1>
-        <p className="text-xl opacity-80 mb-6 animate-slide-up delay-100 transition-colors duration-300">
-          {personalInfo.title} · {personalInfo.education}
-        </p>
-        <p className="text-lg opacity-80 mb-8 animate-slide-up delay-200 transition-colors duration-300">
-          {personalInfo.about}
-        </p>
-
-        <div className="flex flex-wrap gap-4 items-center animate-slide-up delay-300">
-          <Link
-            href="/resume"
-            className={`px-4 py-2 rounded-md border flex items-center gap-2 transition-all duration-300 hover:scale-105 ${
-              darkMode ? "bg-white/5 border-gray-700" : "bg-violet-50 border-violet-200"
-            } hover:animate-border-glow`}
-          >
-            Résumé
-            <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-          </Link>
-          <a
-            href="/resume.pdf"
-            download
-            className={`text-sm ${themeColors.primary} ${themeColors.primaryHover} underline-offset-4 hover:underline`}
-          >
-            Download PDF
-          </a>
-          {personalInfo.links
-            .filter((link) => link.icon && socialIcons[link.icon])
-            .map((link, index) => (
-              <a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${themeColors.socialIcon} transition-all duration-300 hover:scale-110 hover:animate-border-glow`}
-                aria-label={link.name}
-              >
-                {link.icon && socialIcons[link.icon]}
-              </a>
-            ))}
-        </div>
-      </div>
-
+    <div className="mb-16 flex flex-col gap-8 md:flex-row md:justify-between md:items-start md:gap-12">
       {personalInfo.avatar && (
-        <div className="hidden md:block shrink-0">
+        <div className="order-1 flex justify-center md:order-2 md:block shrink-0">
           <div
-            className={`size-48 rounded-xl overflow-hidden border-4 ${darkMode ? "border-amber-400" : "border-violet-600"} transition-all duration-300 animate-float animate-pulse-glow`}
+            className={`size-36 md:size-48 rounded-xl overflow-hidden border-4 ${darkMode ? "border-amber-400" : "border-violet-600"} transition-all duration-300 md:animate-float md:animate-pulse-glow`}
           >
             <Image
               src={personalInfo.avatar}
@@ -100,6 +48,65 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) 
           </div>
         </div>
       )}
+
+      <div className="order-2 max-w-xl md:order-1">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-center md:text-left animate-slide-up">
+          {personalInfo.name} <span className="inline-block md:animate-float">👋</span>
+        </h1>
+        <p className="text-lg sm:text-xl opacity-90 mb-6 animate-slide-up delay-100 transition-colors duration-300 text-center md:text-left">
+          {personalInfo.title} · {personalInfo.education}
+        </p>
+        <p className="text-base sm:text-lg opacity-90 mb-8 animate-slide-up delay-200 transition-colors duration-300 leading-relaxed text-center md:text-left">
+          {personalInfo.about}
+        </p>
+
+        <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start animate-slide-up delay-300">
+          <Link
+            href="/resume"
+            className={`px-4 py-2 rounded-md border flex items-center gap-2 transition-all duration-300 md:hover:scale-105 ${
+              darkMode ? "bg-white/5 border-gray-700" : "bg-violet-50 border-violet-200"
+            } md:hover:animate-border-glow`}
+          >
+            Resume
+            <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+          </Link>
+          <a
+            href="/resume.pdf"
+            download
+            className={`text-sm ${themeColors.primary} ${themeColors.primaryHover} underline-offset-4 hover:underline`}
+            aria-label="Download resume as PDF"
+          >
+            Download resume (PDF)
+          </a>
+          <Link
+            href="/contact"
+            className={`text-sm font-medium ${themeColors.primary} ${themeColors.primaryHover} underline-offset-4 hover:underline`}
+          >
+            Contact
+          </Link>
+          {personalInfo.links
+            .filter((link) => link.icon && socialIcons[link.icon])
+            .map((link, index) => (
+              <a
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${themeColors.socialIcon} transition-all duration-300 md:hover:scale-110 md:hover:animate-border-glow`}
+                aria-label={link.name}
+              >
+                {link.icon && socialIcons[link.icon]}
+              </a>
+            ))}
+        </div>
+      </div>
     </div>
   );
 };

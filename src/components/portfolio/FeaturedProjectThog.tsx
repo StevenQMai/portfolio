@@ -13,10 +13,19 @@ const FeaturedProjectThog: React.FC = () => {
   const muted = darkMode ? "text-gray-400" : "text-gray-600";
 
   return (
-    <section className="mb-16 animate-fadeIn">
-      <div className="flex items-center gap-1 mb-8">
-        <span className={`inline-block size-1.5 rounded-full ${themeColors.primary}`} />
-        <h2 className="text-3xl font-bold font-['Playfair_Display']">Featured technical project</h2>
+    <section className="mb-16 animate-fadeIn" aria-labelledby="discovery-heading">
+      <div className="mb-8">
+        <p
+          className={`text-xs font-semibold uppercase tracking-widest mb-2 ${themeColors.primary}`}
+        >
+          {thogBotFeatured.sectionHeading}
+        </p>
+        <h2 id="discovery-heading" className="text-2xl sm:text-3xl font-bold font-['Playfair_Display']">
+          In-depth project write-up
+        </h2>
+        <p className={`mt-3 leading-relaxed max-w-2xl ${muted}`}>
+          {thogBotFeatured.sectionSubheading}
+        </p>
       </div>
 
       <div className={`rounded-xl border overflow-hidden ${darkMode ? "border-gray-800" : "border-gray-200"}`}>
@@ -29,6 +38,7 @@ const FeaturedProjectThog: React.FC = () => {
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 24rem"
               priority
+              quality={88}
             />
           </div>
           <div
@@ -40,6 +50,7 @@ const FeaturedProjectThog: React.FC = () => {
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 24rem"
+              quality={85}
             />
           </div>
         </div>
@@ -53,14 +64,16 @@ const FeaturedProjectThog: React.FC = () => {
         </p>
 
         <div className={`p-6 md:p-8 ${cardBg}`}>
-          <h3 className="text-2xl font-bold font-['Playfair_Display'] mb-4">{thogBotFeatured.title}</h3>
+          <h3 className="text-xl sm:text-2xl font-bold font-['Playfair_Display'] mb-4">
+            {thogBotFeatured.title}
+          </h3>
           <div className="space-y-4 leading-relaxed opacity-90 mb-8">
             {thogBotFeatured.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
           <div className={`rounded-lg border ${border} p-4 mb-6`}>
-            <h4 className={`font-semibold mb-3 ${themeColors.primary}`}>Results &amp; impact</h4>
+            <h4 className={`text-base font-semibold mb-3 ${themeColors.primary}`}>Results &amp; impact</h4>
             <ul className="list-disc pl-5 space-y-2 opacity-90">
               {thogBotFeatured.impactBullets.map((b, i) => (
                 <li key={i}>{b}</li>
@@ -74,7 +87,7 @@ const FeaturedProjectThog: React.FC = () => {
             className={`inline-flex items-center text-sm font-medium ${themeColors.primary} ${themeColors.primaryHover}`}
           >
             Repository: StevenQMai/thogbot
-            <svg className="size-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="size-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

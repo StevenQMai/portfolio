@@ -32,7 +32,7 @@ const HomeView: React.FC = () => {
             </li>
           ))}
         </ul>
-        <div className="flex flex-wrap gap-3 mt-8">
+        <div className="flex flex-wrap gap-3 mt-8 justify-center sm:justify-start">
           <Link
             href="/about"
             className={`px-4 py-2 rounded-md text-sm font-medium border ${border} ${themeColors.primary} hover:opacity-90 transition-opacity`}
@@ -43,7 +43,13 @@ const HomeView: React.FC = () => {
             href="/projects"
             className={`px-4 py-2 rounded-md text-sm font-medium border ${border} ${themeColors.primary} hover:opacity-90 transition-opacity`}
           >
-            Technical projects
+            Projects &amp; Discovery feature
+          </Link>
+          <Link
+            href="/contact"
+            className={`px-4 py-2 rounded-md text-sm font-medium border ${border} ${themeColors.primary} hover:opacity-90 transition-opacity`}
+          >
+            Contact
           </Link>
           <Link
             href="/career-goals"

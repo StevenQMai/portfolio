@@ -18,7 +18,7 @@ const AboutSection: React.FC = () => {
     <section className="mb-16 animate-fadeIn">
       <div className="flex items-center gap-1 mb-8">
         <span className={`inline-block size-1.5 rounded-full ${themeColors.primary}`} />
-        <h2 className="text-3xl font-bold font-['Playfair_Display']">About Me</h2>
+        <h1 className="text-3xl sm:text-4xl font-bold font-['Playfair_Display']">About Me</h1>
       </div>
 
       <div className={`p-6 rounded-xl ${cardBgClasses} border ${borderClasses} mb-8`}>
