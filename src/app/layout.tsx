@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import PortfolioShell from "@/components/portfolio/PortfolioShell";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Steven Mai's Portfolio",
-  description: "Created using NextJS, Typescript, and TailwindCSS",
+  title: "Steven Mai — Portfolio",
+  description:
+    "Computer Engineering student at Georgia Tech — projects, résumé, career goals, and biography.",
 };
 
 export default function RootLayout({
@@ -27,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <PortfolioShell>{children}</PortfolioShell>
       </body>
     </html>
   );

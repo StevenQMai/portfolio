@@ -10,6 +10,7 @@ export interface ProjectItem {
   technologies: string[];
   link: string;
   image?: string;
+  featured?: boolean;
 }
 
 export interface ExperienceItem {
@@ -42,5 +43,3 @@ export interface ThemeColors {
   gradient: string;
   socialIcon: string;
 }
-
-export type ActiveSection = 'about' | 'work' | 'projects'; 
