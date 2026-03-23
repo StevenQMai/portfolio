@@ -15,9 +15,7 @@ const PicturesPageView: React.FC = () => {
           Pictures
         </h1>
         <p className="text-lg leading-relaxed opacity-90 max-w-2xl">
-          Scroll down—each image sticks while the next one slides over it, like a deck of prints.
-          Add files under <code className="text-sm opacity-90">public/images/gallery/</code> and list them in{" "}
-          <code className="text-sm opacity-90">src/data/mockGallery.ts</code>.
+          Bunch of random pics :)
         </p>
       </header>
 
@@ -64,10 +62,10 @@ const PicturesPageView: React.FC = () => {
         </div>
       </section>
 
-      <p className="text-center text-sm opacity-70 pb-8">
+      {/* <p className="text-center text-sm opacity-70 pb-8">
         Default entries use remote placeholders; switch <code className="text-xs opacity-90">src</code> to your
         paths under <code className="text-xs opacity-90">public/images/gallery/</code>.
-      </p>
+      </p> */}
     </>
   );
 };
