@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { usePortfolioTheme } from "@/context/PortfolioThemeContext";
 import { resumeSections } from "@/data/siteContent";
 
@@ -18,7 +19,7 @@ const ResumePageContent: React.FC = () => {
           <span className={`inline-block size-1.5 rounded-full ${themeColors.primary}`} />
           <h1 className="text-3xl font-bold font-['Playfair_Display']">Resume</h1>
         </div>
-        <a
+        <Link
           href="/resume.pdf"
           download
           className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md border text-sm font-medium transition-all hover:scale-[1.02] ${border} ${themeColors.primary}`}
@@ -33,7 +34,7 @@ const ResumePageContent: React.FC = () => {
               d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
             />
           </svg>
-        </a>
+        </Link>
       </div>
 
       <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border} space-y-8 leading-relaxed`}>

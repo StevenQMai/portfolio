@@ -93,14 +93,14 @@ const Header: React.FC<HeaderProps> = ({ personalInfo, themeColors, darkMode }) 
               />
             </svg>
           </Link>
-          <a
+          <Link
             href="/resume.pdf"
             download
             className={`text-sm ${themeColors.primary} ${themeColors.primaryHover} underline-offset-4 hover:underline`}
             aria-label="Download resume as PDF"
           >
             Download resume (PDF)
-          </a>
+          </Link>
           <Link
             href="/contact"
             className={`text-sm font-medium ${themeColors.primary} ${themeColors.primaryHover} underline-offset-4 hover:underline`}

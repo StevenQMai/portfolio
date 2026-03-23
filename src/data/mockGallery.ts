@@ -1,3 +1,5 @@
+import { publicAsset } from "@/lib/publicPath";
+
 export interface GalleryPhoto {
   id: string;
   /**
@@ -19,7 +21,7 @@ export interface GalleryPhoto {
 export const galleryPhotos: GalleryPhoto[] = [
   {
     id: "1",
-    src: "/images/gallery/me1.jpg",
+    src: publicAsset("/images/gallery/me1.jpg"),
     width: 4032,
     height: 3024,
     title: "Me in recording studio",
@@ -27,7 +29,7 @@ export const galleryPhotos: GalleryPhoto[] = [
   },
   {
     id: "2",
-    src: "/images/gallery/me2.jpg",
+    src: publicAsset("/images/gallery/me2.jpg"),
     width: 800,
     height: 520,
     title: "My birthday",
@@ -35,7 +37,7 @@ export const galleryPhotos: GalleryPhoto[] = [
   },
   {
     id: "3",
-    src: "/images/gallery/me3.jpg",
+    src: publicAsset("/images/gallery/me3.jpg"),
     width: 800,
     height: 520,
     title: "Childhood pic",
@@ -43,7 +45,7 @@ export const galleryPhotos: GalleryPhoto[] = [
   },
   {
     id: "4",
-    src: "/images/gallery/me4.jpg",
+    src: publicAsset("/images/gallery/me4.jpg"),
     width: 800,
     height: 520,
     title: "Beanie!!",
@@ -51,7 +53,7 @@ export const galleryPhotos: GalleryPhoto[] = [
   },
   {
     id: "5",
-    src: "/images/gallery/me5.jpg",
+    src: publicAsset("/images/gallery/me5.jpg"),
     width: 800,
     height: 520,
     title: "HS Graduation",

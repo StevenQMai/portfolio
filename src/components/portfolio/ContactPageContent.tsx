@@ -1,6 +1,7 @@
 "use client";
 
 import React, { JSX } from "react";
+import Link from "next/link";
 import { usePortfolioTheme } from "@/context/PortfolioThemeContext";
 
 const socialIcons: Record<string, JSX.Element> = {
@@ -83,12 +84,12 @@ const ContactPageContent: React.FC = () => {
         <p className={`text-sm ${muted} mb-3`}>
           Peep my resume 👀
         </p>
-        <a
+        <Link
           href="/resume"
           className={`text-sm font-medium ${themeColors.primary} ${themeColors.primaryHover} underline-offset-2 hover:underline`}
         >
           View resume page →
-        </a>
+        </Link>
       </div>
     </section>
   );

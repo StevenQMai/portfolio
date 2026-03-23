@@ -1,4 +1,5 @@
 import type { ExperienceItem } from "@/components/portfolio/types";
+import { publicAsset } from "@/lib/publicPath";
 
 /** Shared with Experience page and on-site resume (aligned with LaTeX resume). */
 export const workExperience: ExperienceItem[] = [
@@ -100,9 +101,9 @@ export const thogBotFeatured = {
   sectionSubheading:
     "Me yapping about Thog Bot LOL",
   title: "Thog Bot — building a community-ready Discord assistant",
-  heroImage: "/images/projects/thog_bot_pfp.png",
+  heroImage: publicAsset("/images/projects/thog_bot_pfp.png"),
   heroAlt: "Thog Bot project avatar graphic",
-  secondaryImage: "/images/projects/plot_armor_dashboard.png",
+  secondaryImage: publicAsset("/images/projects/plot_armor_dashboard.png"),
   secondaryAlt: "Screenshot from the Plot Armor Chrome extension dashboard and related UI work",
   secondaryCredit: {
     label: "Author’s own screenshot (Plot Armor)",

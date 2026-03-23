@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import { publicAsset } from "@/lib/publicPath";
 
 interface EducationItem {
   school: string;
@@ -36,21 +37,21 @@ const EducationTimeline: React.FC<EducationTimelineProps> = ({
       period: "January 2025 – present · expected December 2027",
       description:
         "Coursework includes database systems, data structures and algorithms, software engineering principles, programming HW/SW systems, circuit analysis, and differential equations. Active in GT Web Dev (Software Lead) and GT VIP (data science).",
-      logo: "/images/logos/GT_logo.png",
+      logo: publicAsset("/images/logos/GT_logo.png"),
     },
     {
       school: "Georgia State University",
       degree: "Computer Science",
       period: "August 2024 - December 2024",
       description: "Studied Computer Science for one semester.",
-      logo: "/images/logos/GSU_logo.jpg"
+      logo: publicAsset("/images/logos/GSU_logo.jpg"),
     },
     {
       school: "Clayton State University",
       degree: "Computer Science",
       period: "August 2022 - May 2024",
       description: "Conducted research on hardware random number generator while pursuing Computer Science degree.",
-      logo: "/images/logos/CSU_logo.png"
+      logo: publicAsset("/images/logos/CSU_logo.png"),
     }
   ];
 
