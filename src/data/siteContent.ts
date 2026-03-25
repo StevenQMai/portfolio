@@ -5,7 +5,7 @@ import { publicAsset } from "@/lib/publicPath";
 export const workExperience: ExperienceItem[] = [
   {
     company: "GT Web Dev",
-    position: "Software Lead",
+    position: "Technical Project Manager",
     period: "Jan 2026 – Present",
     bullets: [
       "Led a 9-engineer team using pod-based sprints and CI/CD automation to launch a campus event platform, driving 60% weekly engagement across 150+ beta users.",
@@ -15,7 +15,7 @@ export const workExperience: ExperienceItem[] = [
   },
   {
     company: "GT VIP",
-    position: "Data Science Intern",
+    position: "Data Science Research Assistant",
     period: "Jan 2026 – Present",
     bullets: [
       "Built Python scripts to automate pre-processing and labeling of 40+ hours of human and AI voice data.",
@@ -25,7 +25,7 @@ export const workExperience: ExperienceItem[] = [
   },
   {
     company: "Clayton State University",
-    position: "Software Engineer Intern",
+    position: "Software Development Research Assistant",
     period: "Jan 2024 – May 2024",
     bullets: [
       "Designed and implemented a photon-based hardware random number generator to communicate with optical hardware, enabling automated data acquisition and statistical entropy validation.",
@@ -128,7 +128,7 @@ export const thogBotFeatured = {
 export const resumeProjects: ResumeProjectBlock[] = [
   {
     name: "Plot Armor",
-    stack: "React, TypeScript, Tailwind CSS, Firebase, Groq LLM",
+    stack: "React, Typescript, TailwindCSS, Firebase, Groq LLM",
     bullets: [
       "Developed a Chrome extension with 100+ active users that censors spoilers on webpages using hybrid AI detection, achieving 92% spoiler detection accuracy through optimized NLP keyword matching and ML APIs.",
       "Constructed popup interface processing 500+ daily interactions with real-time stats, user controls, and confidence thresholds improving user satisfaction by 40%.",
@@ -139,14 +139,14 @@ export const resumeProjects: ResumeProjectBlock[] = [
     name: "SpendWise",
     stack: "Java, Android, Firebase, MVVM",
     bullets: [
-      "Built a full-stack mobile application using Java and Android SDK with Firebase backend integration, featuring budget management, expense tracking, social savings circles with real-time chat, and an AI-powered financial chatbot.",
+      "Built a full-stack mobile application using Java and Android SDK with Firebase backend integration, featuring budget management, expense tracking, social savings circles with real-time chat, and an AI-powered financial Chatbot.",
       "Implemented Firebase Authentication supporting 250+ registered users with session management. Integrated Firestore for real-time data, achieving 99.8% sync reliability and reducing data fetch latency by 40%.",
       "Engineered using MVVM, implementing a Singleton Pattern for centralized Firebase and database managers to ensure consistent data access and reduce memory leaks by 25%.",
     ],
   },
   {
     name: "HarmonyAPI",
-    stack: "Python, Flask, React, TypeScript, Groq LLM, PostgreSQL, Docker",
+    stack: "Python, Flask, React, Typescript, Groq LLM, PostgreSQL, Docker",
     bullets: [
       "Developed an AI-powered medical search platform processing 1,000+ queries during HackGT, enabling healthcare providers to retrieve results with 95% query accuracy and generate summaries 60% faster than manual research.",
       "Integrated Groq LLM API to perform semantic search across healthcare datasets, reducing average response time to under 2 seconds and handling 50+ concurrent users while maintaining 99% uptime during the competition.",
@@ -185,15 +185,15 @@ export const resumeSections = {
   },
   skills: {
     languages:
-      "JavaScript, TypeScript, Python, Java, C, C++, SQL, HTML/CSS, RISC-V",
+      "Javascript, Typescript, Python, Java, C, C++, SQL, HTML/CSS, RISC-V",
     tools:
       "MySQL, MongoDB, PostgreSQL, Firebase, Supabase, AWS S3, Vercel, Docker, Git, CI/CD",
     frameworks:
-      "React, Node.js, Express, Flask, FastAPI, Tailwind CSS, JUnit, REST APIs",
+      "React, Node.js, Express, Flask, FastAPI, TailwindCSS, JUnit, REST APIs",
   },
   certifications: [
-    "The Odin Project — Foundations, Full-Stack JavaScript, React",
-    "CodePath — Technical Interview Prep 101",
+    "TheOdinProject: Foundations, Full-Stack Javascript, React",
+    "CodePath: Technical Interview Prep 101",
   ],
   experience: workExperience,
   projects: resumeProjects,
