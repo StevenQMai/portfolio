@@ -1,6 +1,7 @@
 "use client";
 
 // testing
+// testing 2
 
 import React from "react";
 import EducationTimeline from "../EducationTimeline";
