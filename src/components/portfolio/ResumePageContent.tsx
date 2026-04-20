@@ -118,6 +118,31 @@ const ResumePageContent: React.FC = () => {
         </div>
 
         <div>
+          <h3 className={`text-lg font-semibold mb-3 ${themeColors.primary}`}>Campus &amp; Community Involvement</h3>
+          <div className="space-y-8">
+            {resumeSections.campusInvolvement.map((job, i) => (
+              <div key={i}>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                  <p className="font-semibold">
+                    {job.position} <span className="font-normal opacity-90">| {job.company}</span>
+                  </p>
+                  <p className={`text-sm shrink-0 ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
+                    {job.period}
+                  </p>
+                </div>
+                {job.bullets && (
+                  <ul className="list-disc pl-5 space-y-2 mt-3 opacity-90 text-sm md:text-base">
+                    {job.bullets.map((b, j) => (
+                      <li key={j}>{b}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
           <h3 className={`text-lg font-semibold mb-3 ${themeColors.primary}`}>Projects</h3>
           <div className="space-y-8">
             {resumeSections.projects.map((proj) => (

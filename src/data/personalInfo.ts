@@ -25,7 +25,7 @@ export const personalInfo: PersonalInfoData = {
     "C++",
     "SQL",
     "HTML/CSS",
-    "RISC-V",
+    "Assembly/RISC-V",
     "React",
     "Next.js",
     "Node.js",
@@ -37,6 +37,7 @@ export const personalInfo: PersonalInfoData = {
     "MongoDB",
     "MySQL",
     "Firebase",
+    "Supabase",
     "Docker",
     "Git",
     "CI/CD",
@@ -45,6 +46,13 @@ export const personalInfo: PersonalInfoData = {
     "JUnit",
   ],
   projects: [
+    {
+      title: "Noted",
+      description:
+        "Full-stack AI chat-driven calendar app: natural-language prompts become weekly events, Supabase auth, and Google Calendar import with merge conflict resolution.",
+      technologies: ["Next.js", "React", "TypeScript", "Supabase", "OpenAI API", "Google Calendar API"],
+      link: "https://github.com/StevenQMai",
+    },
     {
       title: "Thog Bot",
       description:
