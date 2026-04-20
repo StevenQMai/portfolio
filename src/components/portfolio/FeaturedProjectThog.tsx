@@ -42,11 +42,7 @@ const FeaturedProjectThog: React.FC = () => {
   }
 
   const Screenshot: React.FC<ScreenshotProps> = ({
-    src,
-    alt,
-    label,
-    description,
-    aspectClass = "aspect-video",
+    src, alt, label, description, aspectClass = "aspect-video",
   }) => {
     if (src) {
       return (
@@ -87,34 +83,14 @@ const FeaturedProjectThog: React.FC = () => {
             ${darkMode ? "border-gray-700 bg-gray-900/40" : "border-gray-300 bg-gray-50"}
             flex flex-col items-center justify-center gap-2 p-4`}
         >
-          <svg
-            className={`size-8 opacity-40 ${muted}`}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
-            />
+          <svg className={`size-8 opacity-40 ${muted}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           <p className={`text-xs font-semibold text-center ${muted}`}>{label}</p>
-          <p className={`text-[11px] text-center leading-relaxed max-w-[220px] ${muted} opacity-70`}>
-            {description}
-          </p>
+          <p className={`text-[11px] text-center leading-relaxed max-w-[220px] ${muted} opacity-70`}>{description}</p>
         </div>
-        <figcaption className={`mt-2 text-xs text-center ${muted} opacity-50`}>
-          Screenshot coming soon
-        </figcaption>
+        <figcaption className={`mt-2 text-xs text-center ${muted} opacity-50`}>Screenshot coming soon</figcaption>
       </figure>
     );
   };
@@ -130,7 +106,6 @@ const FeaturedProjectThog: React.FC = () => {
         className="fixed inset-0 z-50 flex flex-col p-4 gap-3 bg-black/80 backdrop-blur-sm"
         onClick={closeLightbox}
       >
-        {/* Close button — in-flow so it takes real vertical space */}
         <div className="flex justify-end shrink-0">
           <button
             onClick={closeLightbox}
@@ -142,8 +117,6 @@ const FeaturedProjectThog: React.FC = () => {
             </svg>
           </button>
         </div>
-
-        {/* Image area — takes all remaining space between button and hint */}
         <div className="flex-1 flex items-center justify-center min-h-0 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -153,13 +126,12 @@ const FeaturedProjectThog: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           />
         </div>
-
-        {/* Hint text — in-flow so it takes real vertical space */}
         <p className="shrink-0 text-center text-white/60 text-xs">
           Click outside or press Esc to close
         </p>
       </div>
     )}
+
     <section className="mb-16 animate-fadeIn" aria-labelledby="discovery-heading">
 
       {/* ── Header ── */}
@@ -176,38 +148,38 @@ const FeaturedProjectThog: React.FC = () => {
 
       <div className="space-y-6">
 
-        {/* ── Overview / Project Idea ── */}
+        {/* ── 1. Discovery Project Idea ── */}
         <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border}`}>
-          <h3 className={`text-lg font-semibold mb-4 ${themeColors.primary}`}>Project idea &amp; journey</h3>
-          <div className="space-y-4 leading-relaxed opacity-90">
-            {discoveryProject.overview.map((p, i) => (
-              <p key={i}>{p}</p>
+          <h3 className={`text-lg font-semibold mb-4 ${themeColors.primary}`}>Discovery project idea</h3>
+          <p className="leading-relaxed opacity-90 mb-4">{discoveryProject.projectIdea.intro}</p>
+          <p className="text-sm font-medium mb-2 opacity-80">I wanted something that could capture and surface:</p>
+          <ul className="space-y-2 mb-5">
+            {discoveryProject.projectIdea.bullets.map((b, i) => (
+              <li key={i} className="flex gap-3 text-sm leading-relaxed opacity-90">
+                <span className={`mt-1 size-1.5 rounded-full shrink-0 ${themeColors.accentBg}`} />
+                <span>{b}</span>
+              </li>
             ))}
-          </div>
+          </ul>
+          <p className="leading-relaxed opacity-90">{discoveryProject.projectIdea.motivation}</p>
         </div>
 
-        {/* ── Architecture + Outputs ── */}
+        {/* ── How It Works (technical context, not a rubric section) ── */}
         <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border}`}>
           <h3 className={`text-lg font-semibold mb-4 ${themeColors.primary}`}>How it works</h3>
           <p className="text-sm mb-5 opacity-80">
             The tool follows a linear pipeline: capture → parse → aggregate → output.
           </p>
 
-          {/* Pipeline diagram — pure CSS, no image needed */}
+          {/* Pipeline diagram */}
           <div className="mb-8 overflow-x-auto">
             <div className="flex items-center gap-0 min-w-max mx-auto w-fit">
               {PIPELINE_STEPS.map((step, i) => (
                 <React.Fragment key={step.num}>
-                  <div
-                    className={`flex flex-col items-center gap-1.5 px-3 py-2.5 rounded-lg border ${border} ${stepBg} min-w-[88px]`}
-                  >
-                    <span className={`text-base font-mono font-bold leading-none ${themeColors.primary}`}>
-                      {step.num}
-                    </span>
+                  <div className={`flex flex-col items-center gap-1.5 px-3 py-2.5 rounded-lg border ${border} ${stepBg} min-w-[88px]`}>
+                    <span className={`text-base font-mono font-bold leading-none ${themeColors.primary}`}>{step.num}</span>
                     <span className="text-xs font-semibold text-center leading-tight">{step.label}</span>
-                    <span className={`text-[10px] text-center leading-tight ${muted} whitespace-pre-line`}>
-                      {step.sub}
-                    </span>
+                    <span className={`text-[10px] text-center leading-tight ${muted} whitespace-pre-line`}>{step.sub}</span>
                   </div>
                   {i < PIPELINE_STEPS.length - 1 && (
                     <div className={`flex items-center px-1 ${muted}`}>
@@ -224,7 +196,6 @@ const FeaturedProjectThog: React.FC = () => {
             </p>
           </div>
 
-          {/* Architecture bullets */}
           <ul className="space-y-4">
             {discoveryProject.architecture.map((item) => (
               <li key={item.label} className="flex gap-3">
@@ -237,7 +208,6 @@ const FeaturedProjectThog: React.FC = () => {
             ))}
           </ul>
 
-          {/* Chart screenshot — contextually placed after the architecture list that describes it */}
           <div className="mt-6">
             <Screenshot
               src={discoveryProject.screenshots.chart}
@@ -248,7 +218,6 @@ const FeaturedProjectThog: React.FC = () => {
             />
           </div>
 
-          {/* Output files table */}
           <h4 className={`text-base font-semibold mt-8 mb-3 ${themeColors.primary}`}>Output files</h4>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -269,7 +238,6 @@ const FeaturedProjectThog: React.FC = () => {
             </table>
           </div>
 
-          {/* HTML report screenshot — appears right after the table that lists it as an output */}
           <div className="mt-6">
             <Screenshot
               src={discoveryProject.screenshots.htmlReport}
@@ -279,8 +247,6 @@ const FeaturedProjectThog: React.FC = () => {
               aspectClass="aspect-video"
             />
           </div>
-
-          {/* Output folder screenshot — confirms the three files from the table actually exist */}
           <div className="mt-4">
             <Screenshot
               src={discoveryProject.screenshots.outputFolder}
@@ -292,10 +258,66 @@ const FeaturedProjectThog: React.FC = () => {
           </div>
         </div>
 
-        {/* ── ECE Skills ── */}
+        {/* ── 2. Project Progress ── */}
         <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border}`}>
-          <h3 className={`text-lg font-semibold mb-4 ${themeColors.primary}`}>ECE skills gained</h3>
+          <h3 className={`text-lg font-semibold mb-5 ${themeColors.primary}`}>Project progress</h3>
           <div className="space-y-5">
+            {discoveryProject.projectProgress.phases.map((phase, i) => (
+              <div key={i} className={`rounded-lg border ${border} p-4`}>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={`text-xs font-mono font-bold ${themeColors.primary}`}>
+                    Phase {i + 1}
+                  </span>
+                  <span className="font-semibold text-sm">{phase.title}</span>
+                </div>
+                <p className="text-sm leading-relaxed opacity-90">{phase.detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className={`mt-5 text-sm leading-relaxed italic opacity-80`}>
+            {discoveryProject.projectProgress.closing}
+          </p>
+        </div>
+
+        {/* ── 3. Successes and Failures ── */}
+        <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border}`}>
+          <h3 className={`text-lg font-semibold mb-5 ${themeColors.primary}`}>Successes &amp; failures</h3>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div>
+              <p className="text-sm font-semibold mb-3">Successes</p>
+              <div className="space-y-3">
+                {discoveryProject.successesAndFailures.successes.map((s, i) => (
+                  <div key={i} className="flex gap-3 text-sm leading-relaxed">
+                    <span className={`mt-1 size-1.5 rounded-full shrink-0 ${themeColors.accentBg}`} />
+                    <div>
+                      <span className="font-semibold">{s.title} — </span>
+                      <span className="opacity-90">{s.detail}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="text-sm font-semibold mb-3">Roadblocks</p>
+              <div className="space-y-3">
+                {discoveryProject.successesAndFailures.failures.map((f, i) => (
+                  <div key={i} className="flex gap-3 text-sm leading-relaxed">
+                    <span className="mt-1 size-1.5 rounded-full shrink-0 bg-gray-400 rounded-full" />
+                    <div>
+                      <span className="font-semibold">{f.title} — </span>
+                      <span className="opacity-90">{f.detail}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── 4. ECE Skills Gained ── */}
+        <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border}`}>
+          <h3 className={`text-lg font-semibold mb-5 ${themeColors.primary}`}>ECE skills gained</h3>
+          <div className="space-y-4">
             {discoveryProject.ecaSkills.map((item, i) => (
               <div key={i} className={`rounded-lg border ${border} p-4`}>
                 <p className="font-semibold text-sm mb-2">{item.skill}</p>
@@ -305,42 +327,11 @@ const FeaturedProjectThog: React.FC = () => {
           </div>
         </div>
 
-        {/* ── Project Progress: milestones + challenges ── */}
+        {/* ── 5. Final Thoughts ── */}
         <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border}`}>
-          <h3 className={`text-lg font-semibold mb-4 ${themeColors.primary}`}>Project progress</h3>
-
-          <h4 className="text-base font-semibold mb-3">Milestones</h4>
-          <ol className="space-y-2 mb-8">
-            {discoveryProject.milestones.map((m, i) => (
-              <li key={i} className="flex gap-3 text-sm leading-relaxed opacity-90">
-                <span className={`font-bold shrink-0 ${themeColors.primary}`}>{i + 1}.</span>
-                <span>{m}</span>
-              </li>
-            ))}
-          </ol>
-
-          <h4 className="text-base font-semibold mb-3">Setbacks &amp; how I solved them</h4>
-          <div className="space-y-4">
-            {discoveryProject.challenges.map((c, i) => (
-              <div key={i} className="flex gap-3 text-sm leading-relaxed">
-                <span className={`mt-1 size-1.5 rounded-full shrink-0 ${themeColors.accentBg}`} />
-                <div>
-                  <span className="font-semibold">{c.title} — </span>
-                  <span className="opacity-90">{c.detail}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <h4 className="text-base font-semibold mt-8 mb-3">Key insights</h4>
-          <ul className="space-y-2">
-            {discoveryProject.insights.map((ins, i) => (
-              <li key={i} className="flex gap-3 text-sm leading-relaxed opacity-90">
-                <span className={`mt-1 size-1.5 rounded-full shrink-0 ${themeColors.accentBg}`} />
-                <span>{ins}</span>
-              </li>
-            ))}
-          </ul>
+          <h3 className={`text-lg font-semibold mb-4 ${themeColors.primary}`}>Final thoughts</h3>
+          <p className="leading-relaxed opacity-90 mb-4">{discoveryProject.finalThoughts.main}</p>
+          <p className="leading-relaxed opacity-90">{discoveryProject.finalThoughts.continuation}</p>
         </div>
 
         {/* ── Ethics & Privacy ── */}
@@ -385,8 +376,6 @@ const FeaturedProjectThog: React.FC = () => {
             Default output directory:{" "}
             <span className="font-mono">~/Downloads/network_traffic_monitor/</span>
           </p>
-
-          {/* Terminal screenshot — follows the exact command that produces it */}
           <div className="mt-5">
             <Screenshot
               src={discoveryProject.screenshots.terminal}
@@ -398,26 +387,7 @@ const FeaturedProjectThog: React.FC = () => {
           </div>
         </div>
 
-        {/* ── Future Work ── */}
-        <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border}`}>
-          <h3 className={`text-lg font-semibold mb-4 ${themeColors.primary}`}>Future work</h3>
-          <ul className="space-y-3">
-            {discoveryProject.futureWork.map((item, i) => (
-              <li key={i} className="flex gap-3 text-sm leading-relaxed opacity-90">
-                <span className={`mt-1 size-1.5 rounded-full shrink-0 ${themeColors.accentBg}`} />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* ── Overall Experience ── */}
-        <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border}`}>
-          <h3 className={`text-lg font-semibold mb-4 ${themeColors.primary}`}>Overall experience</h3>
-          <p className="leading-relaxed opacity-90">{discoveryProject.overallExperience}</p>
-        </div>
-
-        {/* ── Q&A ── */}
+        {/* ── FAQ ── */}
         <div className={`p-6 md:p-8 rounded-xl border ${cardBg} ${border}`}>
           <h3 className={`text-lg font-semibold mb-4 ${themeColors.primary}`}>FAQ</h3>
           <div className="space-y-2">
@@ -458,20 +428,8 @@ const FeaturedProjectThog: React.FC = () => {
             className={`inline-flex items-center text-sm ${linkClasses} transition-all hover:translate-x-1`}
           >
             View on GitHub
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="size-4 ml-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" className="size-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
         </div>

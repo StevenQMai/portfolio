@@ -136,11 +136,102 @@ export const discoveryProject = {
     outputFolder: string | undefined;
   },
 
-  overview: [
-    "I built this because I wanted to understand what my computer is actually doing on the network beyond ‘Wi-Fi bars.’ Every app, background process, and OS service sends and receives data constantly — but nothing in a typical desktop UI shows you that in a structured way. My goal was to build a tool that captures live network packets, extracts the fields that matter (addresses, protocols, ports, sizes), aggregates everything into clean summaries, and produces a self-contained daily report that anyone — not just engineers — can open and read.",
-    "The result is a Python CLI tool that uses Scapy for packet capture, Pandas for aggregation, Matplotlib for charts, and a custom HTML renderer for the final report. Running it for a few minutes produces three files saved to ~/Downloads/network_traffic_monitor/ by default: a CSV of every captured packet, a PNG chart of traffic patterns, and a standalone HTML report anyone can open in a browser without a server or extra software.",
-    "The project taught me more about how networking actually works at the packet level than any lecture had — and confirmed that most traffic on my machine comes from things I never consciously opened.",
+  projectIdea: {
+    intro:
+      "My Discovery Project was to build a network traffic monitor that helps make ‘invisible’ network activity easier to understand. The starting pitch was: if my computer is connected to the internet all day, what is it actually doing — which apps are talking to which servers, and how much data is being sent or received?",
+    bullets: [
+      "What protocols are being used (TCP/UDP/ICMP)",
+      "Which IPs and ports show up frequently",
+      "What connections are active",
+      "Overall traffic volume and patterns over time",
+    ],
+    motivation:
+      "The motivation was both practical and educational. Practically, it’s useful for troubleshooting and security awareness. Educationally, it forces you to understand how packets, protocols, and real operating systems behave — not just in theory.",
+  },
+
+  projectProgress: {
+    phases: [
+      {
+        title: "Basic capture pipeline",
+        detail:
+          "I focused on getting a working capture pipeline: figuring out how to collect traffic data realistically on an actual machine and verifying that what I was capturing made sense. Early success was simply being able to see traffic and confirm it matched what I expected — like seeing activity increase when I loaded a webpage or started a download.",
+      },
+      {
+        title: "Processing and organization",
+        detail:
+          "Raw network data is extremely noisy, so the project became about converting raw events into higher-level information: grouping packets into flows, tracking bytes sent and received, and identifying what should be displayed so it’s not overwhelming. I also worked on making output usable — not just a data dump, but something you can actually interpret quickly.",
+      },
+      {
+        title: "Refinement and reliability",
+        detail:
+          "I tested with different types of network activity — web browsing, streaming, background services — and adjusted the logic so the monitor stayed responsive and results stayed consistent. I also handled edge cases like many short-lived connections, repeated DNS traffic, and bursts of activity that can skew summaries if not handled carefully.",
+      },
+    ],
+    closing:
+      "By the end, the project felt less like ‘can I capture packets’ and more like ‘can I turn this into a tool that highlights what matters.’",
+  },
+
+  successesAndFailures: {
+    successes: [
+      {
+        title: "End-to-end workflow",
+        detail:
+          "Getting the full pipeline working — capture traffic, process it, and produce output that is actually readable — was a clear win. The three output files (CSV, chart, HTML report) all generate cleanly from a single run.",
+      },
+      {
+        title: "Making results interpretable",
+        detail:
+          "Realizing that the hard part isn’t only the technical capture — it’s making results interpretable. Real network traffic is messy and constant. Iterating the output from raw data to something meaningful was the most important part of the project.",
+      },
+    ],
+    failures: [
+      {
+        title: "Noise was the biggest obstacle",
+        detail:
+          "Even when doing nothing, your machine is still communicating: background updates, cloud syncing, DNS queries, and other services. Early versions made everything look equally important. I had to rethink the output and design around the idea of signal vs. noise.",
+      },
+      {
+        title: "Balancing accuracy and performance",
+        detail:
+          "Capturing and processing many events can become expensive quickly. Computing too much in real time or logging too much detail makes the tool slow or hard to use. I learned to make trade-offs: focusing on the most useful metrics, sampling or summarizing when needed, and structuring the program to handle continuous data streams.",
+      },
+      {
+        title: "Gaps between expectation and reality",
+        detail:
+          "I had to debug mismatches between what I thought should happen and what I observed. A single ‘connection’ can involve multiple endpoints, retries, or very short bursts. Those gaps were frustrating, but they were also where the most learning happened.",
+      },
+    ],
+  },
+
+  ecaSkills: [
+    {
+      skill: "Networking fundamentals",
+      detail:
+        "I strengthened my understanding of real networking by working with live traffic: what TCP and UDP look like in practice, how ports and IPs define endpoints, and how higher-level behavior — like loading a webpage — translates into many lower-level network events.",
+    },
+    {
+      skill: "Systems thinking and debugging",
+      detail:
+        "This project interacts directly with the operating system and real network conditions. I had to validate assumptions, test under different scenarios, and trace issues through multiple layers — application behavior, OS networking behavior, and my own processing logic.",
+    },
+    {
+      skill: "Data processing and summarization",
+      detail:
+        "A big part of engineering is not just collecting data but deciding what to compute, how to aggregate it, and how to present it so it supports decisions. Designing those summaries and iterating on them was a major skill-building piece.",
+    },
+    {
+      skill: "Building and iterating a real tool",
+      detail:
+        "I built confidence in creating a project that behaves like a real tool: iterating, testing, and improving reliability instead of stopping at the first working prototype. ‘Working’ and ‘useful’ are not the same thing — that gap drove most of the project.",
+    },
   ],
+
+  finalThoughts: {
+    main:
+      "Overall, the project was challenging but rewarding because it made networking feel real. It definitely increased my interest in this area, especially because it combines software, systems, and security-adjacent thinking. I also learned that ‘working’ isn’t the same as ‘useful’ — the iteration from raw output to meaningful output was the most important part.",
+    continuation:
+      "If I continued the project, I’d expand it toward more user-friendly insights — clearer flow labeling, better filtering, and visual summaries of traffic patterns — so it becomes even easier to answer the question: what is my computer talking to right now, and why?",
+  },
 
   architecture: [
     {
@@ -183,68 +274,6 @@ export const discoveryProject = {
       file: "traffic_report_YYYY-MM-DD.html",
       description: "Self-contained browser report with summary stats and embedded chart.",
     },
-  ],
-
-  ecaSkills: [
-    {
-      skill: "Packet-level networking",
-      detail:
-        "Working at the packet level made abstract concepts concrete. I had to understand why IPv4 and IPv6 look different in Scapy’s object model, what a port number means versus an IP address, why ICMP doesn’t have ports, and why the source address on most outbound packets is 192.168.x.x rather than my public IP. NAT translation happens at the router, after the packet leaves my machine — an insight I wouldn’t have gotten from a textbook alone.",
-    },
-    {
-      skill: "Measurement & instrumentation",
-      detail:
-        "Packet capture is fundamentally a sampling problem. The when of a capture matters as much as the how: a 30-second window at 2 AM on an idle laptop gives you almost nothing useful. The same window during a video call clearly shows what UDP-heavy streaming looks like. Choosing the right observation window is the same discipline as any instrumentation problem in ECE — you have to understand what you’re measuring before you can measure it.",
-    },
-    {
-      skill: "Systems constraints & privilege model",
-      detail:
-        "Packet capture requires root or administrator access because reading raw frames off an interface bypasses the normal socket abstraction. My first run failed with a cryptic permission error. I added a startup check that catches the exception and prints a plain-English message with the exact sudo command to run. This taught me that systems-level Python is genuinely different from script Python: OS privilege constraints are not optional and can’t be abstracted away.",
-    },
-  ],
-
-  milestones: [
-    "Baseline capture: Scapy sniff() working, fields extracted and printed to terminal.",
-    "CSV output: Pandas DataFrame writing structured per-packet data for each run.",
-    "Visualization: Matplotlib charts generated automatically from aggregated DataFrame.",
-    "HTML report: self-contained file with embedded chart, readable without technical knowledge.",
-    "Usability pass: permission error handling, interface selection, output directory control, graceful Ctrl+C exit.",
-  ],
-
-  challenges: [
-    {
-      title: "Elevated permissions",
-      detail:
-        "My first run failed immediately with a cryptic ‘Operation not permitted’ error. Packet capture is a privileged OS operation — it can’t be done without root/admin. I added a startup exception check that prints a plain-English message with the exact sudo command to use.",
-    },
-    {
-      title: "Interface selection",
-      detail:
-        "Scapy’s default interface isn’t always the active one. On macOS Wi-Fi is en0; on Linux it might be wlan0 or enp3s0. Early runs captured zero packets silently because I was on the wrong interface. I added --interface and a startup helper listing available adapters.",
-    },
-    {
-      title: "IPv6 and top-talker confusion",
-      detail:
-        "Early aggregations showed unfamiliar addresses — many were IPv6 multicast (ff02::) and link-local (fe80::) from normal neighbor-discovery traffic. Filtering these cleaned up the reports, but deciding what to filter without hiding real traffic required understanding why those address ranges exist.",
-    },
-    {
-      title: "Dark-mode HTML readability",
-      detail:
-        "My first HTML template used hardcoded dark text on white. On a dark-mode browser, text became unreadable. I added a color-scheme meta tag and explicit background/foreground colors to the inline CSS.",
-    },
-    {
-      title: "Sparse traffic windows",
-      detail:
-        "A 30-second capture at 2 AM on an idle laptop produced almost nothing. Learning to run captures during active use — browser open, video call, file sync — made outputs informative and confirmed the tool was working correctly.",
-    },
-  ],
-
-  insights: [
-    "Inbound vs. outbound asymmetry is real: streaming pulls large inbound flows while your machine sends tiny ACKs.",
-    "Most traffic comes from things you never consciously opened — background services dominate even ‘idle’ periods.",
-    "Encrypted payloads (TLS) mean you can see that a connection happened and how much data moved, but not what was said. This is both a fundamental limitation and why the tool is privacy-safe.",
-    "Your own public IP rarely appears as a source address in raw captures — NAT translation happens at the router after the packet leaves your machine.",
-    "Throughput estimates from packet sizes are approximate — they don’t account for retransmits, fragmentation, or protocol overhead.",
   ],
 
   ethics: {
@@ -315,8 +344,6 @@ sudo python network_traffic_monitor.py --duration 120 --output ~/Desktop/capture
     },
   ],
 
-  overallExperience:
-    "The most surprising result when I actually ran this was how much traffic there is from things I never consciously opened — OS telemetry, cloud sync services, app store checks, and regular heartbeat pings from background processes. Most of it is boring and expected, but seeing it enumerated was the whole point. What was harder than expected was the gap between ‘Python script’ and ‘systems-level tool’ — permissions, interface selection, and OS differences aren’t problems you encounter in typical web or app development. If I were starting over, I’d add DNS hostname resolution from day one, since raw IP addresses are nearly meaningless to a non-technical reader.",
 };
 
 export const resumeProjects: ResumeProjectBlock[] = [
